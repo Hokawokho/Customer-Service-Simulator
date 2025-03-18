@@ -5,20 +5,29 @@ using UnityEngine;
 public class SolitaireManager : MonoBehaviour
 {
     private static readonly string[] cardTypes = new string[] { "H", "D", "C", "S" };
-    private static readonly string[] cardValues = new string[] { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
+    private static readonly string[] cardValues = new string[] { "A", "2", "3", "4", "5", "6", "7", "8", "9", "0", "J", "Q", "K" };
 
     [SerializeField] private SolitaireCard cardPrefab;
     [SerializeField] private Sprite[] cardFaces;
 
     private List<SolitaireCard> deck;
 
+    //~ SETUP ~//
     void Start()
     {
-        DealCards();
+        PrepareBoard();
     }
 
-    public void DealCards() {
+    public void PrepareBoard() {
         deck = GenerateDeck();
+        Shuffle(deck);
+
+        //-DEBUG
+        foreach (SolitaireCard card in deck) {
+            Debug.Log(card.name);
+        }
+
+        DealCards();
     }
 
     public List<SolitaireCard> GenerateDeck() {
@@ -32,5 +41,21 @@ public class SolitaireManager : MonoBehaviour
             }
         }
         return newDeck;
+    }
+
+    private void DealCards() {
+        foreach (SolitaireCard card in deck) {
+            card.Reveal();
+        }
+    }
+
+    //~ UTILITIES ~//
+    void Shuffle<T> (List<T> list) {
+        for (int i = 0; i < list.Count; i++) {
+            int r = UnityEngine.Random.Range(i, list.Count);
+            T tmp = list[i];
+            list [i] = list[r];
+            list[r] = tmp;
+        }
     }
 }
