@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -391,7 +391,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_diam
+      name: cardsL_diam_a
       rect:
         serializedVersion: 2
         x: 0
@@ -685,7 +685,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_spade_a
+      name: cardsL_club_a
       rect:
         serializedVersion: 2
         x: 0
@@ -706,7 +706,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_spade_2
+      name: cardsL_club_2
       rect:
         serializedVersion: 2
         x: 64
@@ -727,7 +727,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_spade_3
+      name: cardsL_club_3
       rect:
         serializedVersion: 2
         x: 128
@@ -748,7 +748,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_spade_4
+      name: cardsL_club_4
       rect:
         serializedVersion: 2
         x: 192
@@ -769,7 +769,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_spade_5
+      name: cardsL_club_5
       rect:
         serializedVersion: 2
         x: 256
@@ -790,7 +790,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_spade_6
+      name: cardsL_club_6
       rect:
         serializedVersion: 2
         x: 320
@@ -811,7 +811,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_spade_7
+      name: cardsL_club_7
       rect:
         serializedVersion: 2
         x: 384
@@ -832,7 +832,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_spade_8
+      name: cardsL_club_8
       rect:
         serializedVersion: 2
         x: 448
@@ -853,7 +853,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_spade_9
+      name: cardsL_club_9
       rect:
         serializedVersion: 2
         x: 512
@@ -874,7 +874,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_spade_10
+      name: cardsL_club_10
       rect:
         serializedVersion: 2
         x: 576
@@ -895,7 +895,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_spade_j
+      name: cardsL_club_j
       rect:
         serializedVersion: 2
         x: 640
@@ -916,7 +916,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_spade_q
+      name: cardsL_club_q
       rect:
         serializedVersion: 2
         x: 704
@@ -937,7 +937,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_spade_k
+      name: cardsL_club_k
       rect:
         serializedVersion: 2
         x: 768
@@ -979,7 +979,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_club_a
+      name: cardsL_spade_a
       rect:
         serializedVersion: 2
         x: 0
@@ -1000,7 +1000,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_club_2
+      name: cardsL_spade_2
       rect:
         serializedVersion: 2
         x: 64
@@ -1021,7 +1021,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_club_3
+      name: cardsL_spade_3
       rect:
         serializedVersion: 2
         x: 128
@@ -1042,7 +1042,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_club_4
+      name: cardsL_spade_4
       rect:
         serializedVersion: 2
         x: 192
@@ -1063,7 +1063,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_club_5
+      name: cardsL_spade_5
       rect:
         serializedVersion: 2
         x: 256
@@ -1084,7 +1084,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_club_6
+      name: cardsL_spade_6
       rect:
         serializedVersion: 2
         x: 320
@@ -1105,7 +1105,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_club_7
+      name: cardsL_spade_7
       rect:
         serializedVersion: 2
         x: 384
@@ -1126,7 +1126,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_club_8
+      name: cardsL_spade_8
       rect:
         serializedVersion: 2
         x: 448
@@ -1147,7 +1147,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_club_9
+      name: cardsL_spade_9
       rect:
         serializedVersion: 2
         x: 512
@@ -1168,7 +1168,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_club_10
+      name: cardsL_spade_10
       rect:
         serializedVersion: 2
         x: 576
@@ -1189,7 +1189,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_club_j
+      name: cardsL_spade_j
       rect:
         serializedVersion: 2
         x: 640
@@ -1210,7 +1210,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_club_q
+      name: cardsL_spade_q
       rect:
         serializedVersion: 2
         x: 704
@@ -1231,7 +1231,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cardsL_club_k
+      name: cardsL_spade_k
       rect:
         serializedVersion: 2
         x: 768
@@ -1285,20 +1285,19 @@ TextureImporter:
     nameFileIdTable:
       cardsL_back: 1906612502
       cardsL_blank: -362997137
-      cardsL_club_10: -662630198
-      cardsL_club_2: -271672453
-      cardsL_club_3: 922186120
-      cardsL_club_4: -187334941
-      cardsL_club_5: 121884666
-      cardsL_club_6: 1529466750
-      cardsL_club_7: -807140527
-      cardsL_club_8: 779997479
-      cardsL_club_9: -323811529
-      cardsL_club_a: 946111906
-      cardsL_club_j: -1772411641
-      cardsL_club_k: -1313047335
-      cardsL_club_q: -1628700667
-      cardsL_diam: 1600361793
+      cardsL_club_10: -1282838813
+      cardsL_club_2: -190516646
+      cardsL_club_3: -1683815431
+      cardsL_club_4: -1700381199
+      cardsL_club_5: 1141269471
+      cardsL_club_6: -362198096
+      cardsL_club_7: 1850738280
+      cardsL_club_8: -1767926235
+      cardsL_club_9: 154728210
+      cardsL_club_a: 908227319
+      cardsL_club_j: 1382765729
+      cardsL_club_k: -526524917
+      cardsL_club_q: 457153305
       cardsL_diam_10: 732693941
       cardsL_diam_2: -1217496680
       cardsL_diam_3: -1876584540
@@ -1308,6 +1307,7 @@ TextureImporter:
       cardsL_diam_7: 41828513
       cardsL_diam_8: 1819416046
       cardsL_diam_9: 1597375948
+      cardsL_diam_a: 1600361793
       cardsL_diam_j: 1085265623
       cardsL_diam_k: -713394397
       cardsL_diam_q: 417616032
@@ -1326,19 +1326,19 @@ TextureImporter:
       cardsL_heart_q: -527542593
       cardsL_joker_black: 1479380581
       cardsL_joker_red: -1896438321
-      cardsL_spade_10: -1282838813
-      cardsL_spade_2: -190516646
-      cardsL_spade_3: -1683815431
-      cardsL_spade_4: -1700381199
-      cardsL_spade_5: 1141269471
-      cardsL_spade_6: -362198096
-      cardsL_spade_7: 1850738280
-      cardsL_spade_8: -1767926235
-      cardsL_spade_9: 154728210
-      cardsL_spade_a: 908227319
-      cardsL_spade_j: 1382765729
-      cardsL_spade_k: -526524917
-      cardsL_spade_q: 457153305
+      cardsL_spade_10: -662630198
+      cardsL_spade_2: -271672453
+      cardsL_spade_3: 922186120
+      cardsL_spade_4: -187334941
+      cardsL_spade_5: 121884666
+      cardsL_spade_6: 1529466750
+      cardsL_spade_7: -807140527
+      cardsL_spade_8: 779997479
+      cardsL_spade_9: -323811529
+      cardsL_spade_a: 946111906
+      cardsL_spade_j: -1772411641
+      cardsL_spade_k: -1313047335
+      cardsL_spade_q: -1628700667
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

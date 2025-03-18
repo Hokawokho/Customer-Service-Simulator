@@ -214,6 +214,104 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1941881138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1941881139}
+  - component: {fileID: 1941881140}
+  m_Layer: 0
+  m_Name: SolitaireManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1941881139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941881138}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3625841, y: 0.05876507, z: -0.05038501}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1941881140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941881138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5557b2553a4d75588920d357c58350ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardPrefab: {fileID: 8372862568050630463, guid: 9f4e7346184183937adc9f1b591074b9, type: 3}
+  cardFaces:
+  - {fileID: -448900192, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -465951546, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 1954970665, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -1447502467, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -1509138389, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -1590329250, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -1346782379, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 1356847580, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 444009199, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 743458935, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -801011430, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -527542593, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 1711447801, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 1600361793, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -1217496680, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -1876584540, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 1661928474, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 171825101, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -1197950139, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 41828513, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 1819416046, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 1597375948, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 732693941, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 1085265623, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 417616032, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -713394397, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 908227319, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -190516646, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -1683815431, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -1700381199, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 1141269471, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -362198096, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 1850738280, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -1767926235, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 154728210, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -1282838813, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 1382765729, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 457153305, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -526524917, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 946111906, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -271672453, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 922186120, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -187334941, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 121884666, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 1529466750, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -807140527, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: 779997479, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -323811529, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -662630198, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -1772411641, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -1628700667, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  - {fileID: -1313047335, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
 --- !u!1001 &1218331983732523546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -264,7 +362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3588051881319644474, guid: d93f789172371b88d8d8de1a64035d7f, type: 3}
       propertyPath: m_Name
-      value: poker_bg
+      value: SolitaireBoard
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -277,3 +375,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 938785775}
   - {fileID: 1218331983732523546}
+  - {fileID: 1941881139}
