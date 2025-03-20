@@ -64,6 +64,11 @@ public class Fly : MonoBehaviour
         transform.position += (-transform.up) * (Time.deltaTime * speed);
     }
 
+    void OnDestroy()
+    {
+        flySpawner.FlyDestroyed();
+    }
+
     private IEnumerator WaitBeforeNextRotation() {
         if (!_rotating) yield return null;
         _rotating = false;

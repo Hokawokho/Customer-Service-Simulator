@@ -258,9 +258,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948e35b1930b17dc1a73c84d0bdac49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flyCount: 0
-  flyLimit: 50
-  fliesPerFrame: 1
+  amountOfSpawns: 6
+  timeBetweenSpawns: 3
   maxSpeed: 7
   minSpeed: 1
   spawnCircleRadiusOffset: 0.7
