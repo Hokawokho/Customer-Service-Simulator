@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Fly
   layers:
   - Default
   - TransparentFX
@@ -40,4 +41,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1958901953
+    locked: 0
+  - name: Interactables
+    uniqueID: 2027473051
+    locked: 0
+  - name: Characters
+    uniqueID: 425662933
+    locked: 0
+  - name: Player
+    uniqueID: 3892349147
+    locked: 0
+  - name: Foreground
+    uniqueID: 1675718641
     locked: 0
