@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Fly
   layers:
   - Default
   - TransparentFX
@@ -47,6 +48,12 @@ TagManager:
   - name: Level
     uniqueID: 109214507
     locked: 0
-  - name: Player
+  - name: Characters
     uniqueID: 1031403459
+    locked: 0
+  - name: Player
+    uniqueID: 3180133447
+    locked: 0
+  - name: Foreground
+    uniqueID: 736812415
     locked: 0
