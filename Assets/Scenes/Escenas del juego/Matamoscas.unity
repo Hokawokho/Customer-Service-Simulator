@@ -310,10 +310,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlySwatter
       objectReference: {fileID: 0}
-    - target: {fileID: 3965064180999388364, guid: 661b7ed89990403bc8aa3af2df001315, type: 3}
-      propertyPath: hitFXTime
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 4299601001413543908, guid: 661b7ed89990403bc8aa3af2df001315, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
