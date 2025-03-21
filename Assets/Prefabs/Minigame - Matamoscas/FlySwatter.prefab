@@ -237,7 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   reloadingTime: 1
-  hitFXTime: 0.3
+  hitFXTime: 0.2
   reloadingSprites:
   - {fileID: 367909555, guid: a83ff478911c76affa0fb700773dd37b, type: 3}
   - {fileID: -1934745134, guid: a83ff478911c76affa0fb700773dd37b, type: 3}
