@@ -79,7 +79,6 @@ public class FlySwatter : MonoBehaviour
     private IEnumerator HitFX() {
         float waitTime = hitFXTime / (hitFXSprites.Length + 1);
         
-        // Start reload
         hitSprRenderer.sprite = hitFXSprites[0];
         Color tmp = hitSprRenderer.color;
         tmp.a = 1f;
@@ -97,7 +96,7 @@ public class FlySwatter : MonoBehaviour
     {
         if (reloading) return;
         if (Input.GetMouseButton(0) && other.transform.CompareTag("Fly")) {
-            Destroy(other.gameObject);
+            other.GetComponent<Fly>().Kill();
         }
     }
 }
