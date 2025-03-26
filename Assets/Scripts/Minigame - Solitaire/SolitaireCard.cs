@@ -16,7 +16,7 @@ public class SolitaireCard : MonoBehaviour
     }
 
     public void SetCard(string cardId, Sprite img, SolitaireManager mng) {
-        this.name = cardId;
+        name = cardId;
         id = cardId;
         GetComponent<SpriteRenderer>().sprite = img;
         manager = mng;
