@@ -9,6 +9,10 @@ public class SolitaireManager : MonoBehaviour
 
     [SerializeField] private SolitaireCard cardPrefab;
     [SerializeField] private Sprite[] cardFaces;
+    [SerializeField] private Transform stock;
+    [SerializeField] private Transform wastePile;
+    [SerializeField] private List<Transform> tableauPiles;
+    [SerializeField] private List<Transform> foundationPiles;
 
     private List<SolitaireCard> deck;
 
@@ -22,21 +26,16 @@ public class SolitaireManager : MonoBehaviour
         deck = GenerateDeck();
         Shuffle(deck);
 
-        //-DEBUG
-        foreach (SolitaireCard card in deck) {
-            Debug.Log(card.name);
-        }
-
         DealCards();
     }
 
     public List<SolitaireCard> GenerateDeck() {
         List<SolitaireCard> newDeck = new List<SolitaireCard>();
-        int face = 0;
-        foreach (string t in cardTypes) {
-            foreach (string v in cardValues) {
+        int faceIndex = 0;
+        foreach (string type in cardTypes) {
+            foreach (string value in cardValues) {
                 var card = Instantiate<SolitaireCard>(cardPrefab);
-                card.SetCard(t+v, cardFaces[face], this);
+                card.SetCard(type+value, cardFaces[faceIndex], this);
                 newDeck.Add(card);
             }
         }
@@ -49,10 +48,13 @@ public class SolitaireManager : MonoBehaviour
         }
     }
 
+    //~ BOARD PLACING FUNCTIONS ~//
+    
+
     //~ UTILITIES ~//
     void Shuffle<T> (List<T> list) {
         for (int i = 0; i < list.Count; i++) {
-            int r = UnityEngine.Random.Range(i, list.Count);
+            int r = Random.Range(i, list.Count);
             T tmp = list[i];
             list [i] = list[r];
             list[r] = tmp;

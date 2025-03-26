@@ -48,6 +48,9 @@ TagManager:
   - name: Level
     uniqueID: 109214507
     locked: 0
+  - name: Interactables
+    uniqueID: 167015643
+    locked: 0
   - name: Characters
     uniqueID: 1031403459
     locked: 0
