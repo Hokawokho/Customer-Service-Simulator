@@ -12,7 +12,8 @@ public class FlySwatter : MonoBehaviour
     private Vector3 mousePos;
     private Vector2 pos;
 
-    private bool reloading;
+    private bool _reloading;
+    private List<GameObject> flies = new List<GameObject>();
 
     [SerializeField] private Sprite[] reloadingSprites;
     [SerializeField] private Sprite[] hitFXSprites;
@@ -29,8 +30,12 @@ public class FlySwatter : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !reloading) {
-            Debug.Log("HIT!");
+        if (!_reloading && Input.GetMouseButtonDown(0)) {
+            foreach (GameObject fly in flies) {
+                fly.GetComponent<Fly>().Kill();
+            }
+            flies.Clear();
+
             StartCoroutine(Reloading());
             StartCoroutine(HitFX());
         }
@@ -48,7 +53,7 @@ public class FlySwatter : MonoBehaviour
     }
 
     private IEnumerator Reloading() {
-        reloading = true;
+        _reloading = true;
         float waitTime = reloadingTime / (reloadingSprites.Length + 1);
         
         // Start reload
@@ -73,7 +78,7 @@ public class FlySwatter : MonoBehaviour
         tmp.a = 1f;
         GetComponent<SpriteRenderer>().color = tmp;
 
-        reloading = false;
+        _reloading = false;
     }
 
     private IEnumerator HitFX() {
@@ -92,11 +97,17 @@ public class FlySwatter : MonoBehaviour
         hitSprRenderer.color = tmp;
     }
 
-    void OnTriggerStay2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (reloading) return;
-        if (Input.GetMouseButton(0) && other.transform.CompareTag("Fly")) {
-            other.GetComponent<Fly>().Kill();
+        if (other.CompareTag("Fly")) {
+            Debug.Log("Fly enter");
+            flies.Add(other.gameObject);
         }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        Debug.Log("Fly exit");
+        flies.Remove(other.gameObject);
     }
 }

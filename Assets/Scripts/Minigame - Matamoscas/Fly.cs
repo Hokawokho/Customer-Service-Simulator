@@ -38,7 +38,7 @@ public class Fly : MonoBehaviour
     void Update()
     {
         Move();
-
+        
         // Si la mosca se sale de la cámara, dar media vuelta.
         if (!IsInBounds()) {
             if (_dead) {
@@ -64,12 +64,10 @@ public class Fly : MonoBehaviour
             } else {
                 // Se terminó la rotación. Se elige siguiente rotación...
                 if (_dead) {
-                    transform.rotation = Quaternion.LookRotation(Vector3.back, Vector3.up);
-                    _targetRotation = RandomRotation(transform.rotation, 20f);
+                    _targetRotation = RandomRotation(Quaternion.LookRotation(Vector3.forward, Vector3.up), 20f);
                 } else {
                     _targetRotation = RandomRotation(transform.rotation, flySpawner.maxRotation);
                 }
-                
             }
         }
     }
@@ -82,8 +80,18 @@ public class Fly : MonoBehaviour
     public void Kill() {
         _dead = true;
         _anim.SetBool("dead", true);
-
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+        _targetRotation = transform.rotation;
+        
+        Color tmp = GetComponent<SpriteRenderer>().color;
+        tmp.a = 0.5f;
+        GetComponent<SpriteRenderer>().color = tmp;
         speed = 7.0f;
+    }
+
+    void OnDestroy()
+    {
+        flySpawner.FlyDestroyed();
     }
 
     private IEnumerator WaitBeforeNextRotation() {
