@@ -11,19 +11,20 @@ public class SolitaireLoader : MonoBehaviour
 {
     public string stateFolderPath = Application.dataPath + "Data/Solitaire";
     private List<string> stateFiles;
+    private StateData initialStateData;
 
     [SerializeField] private SolitaireManager manager;
     
     void Start()
     {
-        
+        LoadState();
     }
 
     private void LoadState() {
         stateFiles = Directory.GetFiles(stateFolderPath, "*.json").ToList();
 
         if (stateFiles.Count == 0) {
-            Debug.LogError("No se encontraron archivos de estado de solitario válidos en " + stateFolderPath);
+            Debug.LogError("No se encontraron archivos json en " + stateFolderPath);
             return;
         }
 
@@ -31,12 +32,12 @@ public class SolitaireLoader : MonoBehaviour
         string selectedFile = stateFiles[r];
         string json = File.ReadAllText(selectedFile);
 
-        SolitaireState stateData = JsonUtility.FromJson<SolitaireState>(json);
-        ApplyState(stateData);
+        StateData initialStateData = JsonUtility.FromJson<StateData>(json);
+        ApplyState();
     }
 
-    private void ApplyState(SolitaireState stateData) {
-        
+    private void ApplyState() {
+        throw new NotImplementedException(); // TODO
     }
 
     private void ClearBoard() {
@@ -46,7 +47,7 @@ public class SolitaireLoader : MonoBehaviour
 }
 
 [Serializable]
-public class SolitaireState
+public class StateData
 {
     public List<CardData> deck;
     public List<FoundationData> foundations;

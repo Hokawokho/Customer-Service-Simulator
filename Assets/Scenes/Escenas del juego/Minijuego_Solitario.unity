@@ -122,6 +122,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &86483242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 86483243}
+  - component: {fileID: 86483244}
+  m_Layer: 0
+  m_Name: JsonLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &86483243
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86483242}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1941881139}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &86483244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86483242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cea043631e1c9c40bc32034e23aed9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateFolderPath: /home/dabare/UnityProjects/Customer-Service-Simulator/AssetsData/Solitaire
+  manager: {fileID: 1941881140}
 --- !u!1 &938785772
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +289,8 @@ Transform:
   m_LocalPosition: {x: 1.3625841, y: 0.05876507, z: -0.05038501}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 86483243}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1941881140
@@ -312,6 +359,10 @@ MonoBehaviour:
   - {fileID: -1772411641, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
   - {fileID: -1628700667, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
   - {fileID: -1313047335, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
+  stock: {fileID: 0}
+  wastePile: {fileID: 0}
+  tableauPiles: []
+  foundationPiles: []
 --- !u!1001 &1218331983732523546
 PrefabInstance:
   m_ObjectHideFlags: 0

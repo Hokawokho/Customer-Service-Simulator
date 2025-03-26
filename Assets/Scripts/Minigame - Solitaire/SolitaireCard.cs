@@ -1,14 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class SolitaireCard : MonoBehaviour
 {
     [SerializeField] private GameObject backOfCard;
     private SolitaireManager manager;
-
-    private bool selectable;
 
     //~ GETTERS/SETTERS ~//
     public string id {
@@ -28,16 +25,14 @@ public class SolitaireCard : MonoBehaviour
 
     public void Reveal() {
         backOfCard.SetActive(false);
-        selectable = true;
     }
 
     public void Unreveal() {
         backOfCard.SetActive(true);
-        selectable = false;
     }
 
     void Start()
     {
-        selectable = GetComponent<Selectable>();
+        
     }
 }
