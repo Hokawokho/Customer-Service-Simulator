@@ -166,8 +166,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cea043631e1c9c40bc32034e23aed9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateFolderPath: /home/dabare/UnityProjects/Customer-Service-Simulator/AssetsData/Solitaire
+  stateFolderPath: /home/dabare/UnityProjects/Customer-Service-Simulator/Assets/Data/Solitaire
   manager: {fileID: 1941881140}
+--- !u!4 &424833033 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7423246189772870028, guid: d93f789172371b88d8d8de1a64035d7f, type: 3}
+  m_PrefabInstance: {fileID: 1218331983732523546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &532968510 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6298353317045885711, guid: d93f789172371b88d8d8de1a64035d7f, type: 3}
+  m_PrefabInstance: {fileID: 1218331983732523546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &653127578 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6255357466016198956, guid: d93f789172371b88d8d8de1a64035d7f, type: 3}
+  m_PrefabInstance: {fileID: 1218331983732523546}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &938785772
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +275,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1121890198 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5305744663808568242, guid: d93f789172371b88d8d8de1a64035d7f, type: 3}
+  m_PrefabInstance: {fileID: 1218331983732523546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1150608220 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6006601424441088908, guid: d93f789172371b88d8d8de1a64035d7f, type: 3}
+  m_PrefabInstance: {fileID: 1218331983732523546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1157648986 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2338128091932634078, guid: d93f789172371b88d8d8de1a64035d7f, type: 3}
+  m_PrefabInstance: {fileID: 1218331983732523546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1331210635 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1755588613839273050, guid: d93f789172371b88d8d8de1a64035d7f, type: 3}
+  m_PrefabInstance: {fileID: 1218331983732523546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1554001128 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1926872670154544673, guid: d93f789172371b88d8d8de1a64035d7f, type: 3}
+  m_PrefabInstance: {fileID: 1218331983732523546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1608982170 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5821085262022570987, guid: d93f789172371b88d8d8de1a64035d7f, type: 3}
+  m_PrefabInstance: {fileID: 1218331983732523546}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1941881138
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,10 +404,29 @@ MonoBehaviour:
   - {fileID: -1772411641, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
   - {fileID: -1628700667, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
   - {fileID: -1313047335, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
-  stock: {fileID: 0}
-  wastePile: {fileID: 0}
-  tableauPiles: []
-  foundationPiles: []
+  tableauPiles:
+  - {fileID: 1150608220}
+  - {fileID: 424833033}
+  - {fileID: 532968510}
+  - {fileID: 1121890198}
+  - {fileID: 2110004211}
+  - {fileID: 1957582795}
+  - {fileID: 1554001128}
+  foundationPiles:
+  - {fileID: 1608982170}
+  - {fileID: 653127578}
+  - {fileID: 1157648986}
+  - {fileID: 1331210635}
+--- !u!4 &1957582795 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6196888918144984982, guid: d93f789172371b88d8d8de1a64035d7f, type: 3}
+  m_PrefabInstance: {fileID: 1218331983732523546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2110004211 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3848705065250114622, guid: d93f789172371b88d8d8de1a64035d7f, type: 3}
+  m_PrefabInstance: {fileID: 1218331983732523546}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1218331983732523546
 PrefabInstance:
   m_ObjectHideFlags: 0
