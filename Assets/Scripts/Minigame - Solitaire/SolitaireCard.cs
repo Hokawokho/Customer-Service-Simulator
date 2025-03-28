@@ -23,12 +23,8 @@ public class SolitaireCard : MonoBehaviour
         get { return !backOfCard.activeSelf; }
     }
 
-    public void Reveal() {
-        backOfCard.SetActive(false);
-    }
-
-    public void Unreveal() {
-        backOfCard.SetActive(true);
+    public void Reveal(bool cond) {
+        backOfCard.SetActive(!cond);
     }
 
     void Start()

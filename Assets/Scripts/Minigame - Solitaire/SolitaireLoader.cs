@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class SolitaireLoader : MonoBehaviour
 {
-    public string stateFolderPath = Application.dataPath + "Data/Solitaire";
+    private string stateFolderPath;
     private List<string> stateFiles;
     private StateData initialStateData;
 
@@ -17,6 +18,11 @@ public class SolitaireLoader : MonoBehaviour
     
     void Start()
     {
+        // TODO: Cambiar a Application.persistentDataPath + "/Data/Solitaire"
+        // (y lidiar con los problemas que eso causa...)
+        // Porque persistentDataPath es para los datos que persistirán entre ejecuciones.
+        stateFolderPath = Application.dataPath + "/Data/Solitaire";
+
         LoadState();
     }
 
@@ -32,16 +38,63 @@ public class SolitaireLoader : MonoBehaviour
         string selectedFile = stateFiles[r];
         string json = File.ReadAllText(selectedFile);
 
-        StateData initialStateData = JsonUtility.FromJson<StateData>(json);
+        initialStateData = JsonUtility.FromJson<StateData>(json);
         ApplyState();
     }
 
     private void ApplyState() {
-        throw new NotImplementedException(); // TODO
-    }
+        // DEBUG {
+        float xOffset = 0f;
+        float zOffset = -0.03f;
 
-    private void ClearBoard() {
-        throw new NotImplementedException(); // TODO
+        // Comprobar la pila final a completar
+        foreach (CardData card in initialStateData.foundation.cards) {
+            SolitaireCard newCard = manager.CreateCard(card.id);
+            newCard.Reveal(true);
+            newCard.transform.position = new Vector3(-(Camera.main.orthographicSize * Camera.main.aspect) + xOffset,
+                                                    0f,
+                                                    zOffset);
+            
+            xOffset += 1f;
+            zOffset -= 0.03f;
+        }
+
+        xOffset = 0f;
+        zOffset = -0.03f;
+
+
+        // Comprobar cada escalera del tablero
+        float yTabOffset = -3f;
+        foreach (TableauRowData row in initialStateData.tableau) {
+            float zExtraOffset = -0.1f;
+            foreach (CardData card in row.cards) {
+                SolitaireCard newCard = manager.CreateCard(card.id);
+                newCard.Reveal(true);
+                newCard.transform.position = new Vector3(-(Camera.main.orthographicSize * Camera.main.aspect) + xOffset,
+                                                        yTabOffset,
+                                                        zOffset);
+
+                xOffset += 1f;
+                zOffset -= 0.03f;
+            }
+
+            xOffset = 0f;
+            zOffset += zExtraOffset;
+            yTabOffset -= 1f;
+        }
+        // } DEBUG
+
+        /* VERSION FINAL
+        for (int i = 0; i < initialStateData.tableau.Count; i++) {
+            TableauRowData row = initialStateData.tableau[i];
+            for (int j = 0; j < row.cards.Count; j++) {
+                SolitaireCard card = manager.CreateCard(row.cards[j].id);
+                Debug.Log(card.id);
+                card.Reveal(row.cards[j].isFaceUp);
+                manager.PlaceCardOnTableau(card, i);    // TODO: Índice de prueba. Cambiar más tarde.
+            }
+        }
+        */
     }
 
 }
@@ -49,20 +102,20 @@ public class SolitaireLoader : MonoBehaviour
 [Serializable]
 public class StateData
 {
-    public List<CardData> deck;
-    public List<FoundationData> foundations;
+    //public List<CardData> deck;
+    public FoundationData foundation;
     public List<TableauRowData> tableau;
 }
 
 [Serializable]
 public class CardData {
     public string id;
-    public bool revaled;
+    public bool isFaceUp;
 }
 
 [Serializable]
 public class FoundationData {
-    public CardType type;
+    public string suit;
     public List<CardData> cards;
 }
 
