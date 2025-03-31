@@ -10,7 +10,7 @@ using Random = UnityEngine.Random;
 
 public class SolitaireLoader : MonoBehaviour
 {
-    public string stateFolderPath = Application.dataPath + "/Data/Solitaire";
+    private string stateFolderPath;
     private List<string> stateFiles;
     private StateData initialStateData;
 
@@ -18,6 +18,11 @@ public class SolitaireLoader : MonoBehaviour
     
     void Start()
     {
+        // TODO: Cambiar a Application.persistentDataPath + "/Data/Solitaire"
+        // (y lidiar con los problemas que eso causa...)
+        // Porque persistentDataPath es para los datos que persistirán entre ejecuciones.
+        stateFolderPath = Application.dataPath + "/Data/Solitaire";
+
         LoadState();
     }
 
