@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 4090534589039327287}
   m_Layer: 0
   m_Name: Bottom6
-  m_TagString: Untagged
+  m_TagString: SolitaireSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 582665838452193021}
   m_Layer: 0
   m_Name: Bottom0
-  m_TagString: Untagged
+  m_TagString: SolitaireSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 3908437024961901937}
   m_Layer: 0
   m_Name: Bottom5
-  m_TagString: Untagged
+  m_TagString: SolitaireSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 510035867625466834}
   m_Layer: 0
   m_Name: Top3
-  m_TagString: Untagged
+  m_TagString: SolitaireSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -678,7 +678,7 @@ GameObject:
   - component: {fileID: 4837322801208917437}
   m_Layer: 0
   m_Name: Top0
-  m_TagString: Untagged
+  m_TagString: SolitaireSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -762,7 +762,7 @@ GameObject:
   - component: {fileID: 363051781758945556}
   m_Layer: 0
   m_Name: Bottom4
-  m_TagString: Untagged
+  m_TagString: SolitaireSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -846,7 +846,7 @@ GameObject:
   - component: {fileID: 7771997268956758972}
   m_Layer: 0
   m_Name: Top2
-  m_TagString: Untagged
+  m_TagString: SolitaireSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -930,7 +930,7 @@ GameObject:
   - component: {fileID: 7861485637958692398}
   m_Layer: 0
   m_Name: Bottom3
-  m_TagString: Untagged
+  m_TagString: SolitaireSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1014,7 +1014,7 @@ GameObject:
   - component: {fileID: 8686578930770668520}
   m_Layer: 0
   m_Name: Bottom1
-  m_TagString: Untagged
+  m_TagString: SolitaireSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1098,7 +1098,7 @@ GameObject:
   - component: {fileID: 2284815082327087503}
   m_Layer: 0
   m_Name: Top1
-  m_TagString: Untagged
+  m_TagString: SolitaireSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1182,7 +1182,7 @@ GameObject:
   - component: {fileID: 7777806337086655024}
   m_Layer: 0
   m_Name: Bottom2
-  m_TagString: Untagged
+  m_TagString: SolitaireSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

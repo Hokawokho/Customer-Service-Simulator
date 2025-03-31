@@ -43,7 +43,7 @@ public class SolitaireLoader : MonoBehaviour
     }
 
     private void ApplyState() {
-        // DEBUG {
+        /* DEBUG {
         float xOffset = 0f;
         float zOffset = -0.03f;
 
@@ -61,7 +61,6 @@ public class SolitaireLoader : MonoBehaviour
 
         xOffset = 0f;
         zOffset = -0.03f;
-
 
         // Comprobar cada escalera del tablero
         float yTabOffset = -3f;
@@ -82,21 +81,28 @@ public class SolitaireLoader : MonoBehaviour
             zOffset += zExtraOffset;
             yTabOffset -= 1f;
         }
-        // } DEBUG
+        */// } DEBUG
+        
+        List<CardData> foundationCards = initialStateData.foundation.cards;
+        string foundationType = initialStateData.foundation.suit[0].ToString();
+        for (int i = 0; i < foundationCards.Count; i++) {
+            SolitaireCard newCard = manager.CreateCard(foundationCards[i].id);
+            newCard.Reveal(true);
+            manager.PlaceCardOnFoundation(newCard, (CardSuit)Enum.Parse(typeof(CardSuit), foundationType));
+        }
 
-        /* VERSION FINAL
-        for (int i = 0; i < initialStateData.tableau.Count; i++) {
+        int[] randIndexes = Utilities.GetRandomIndexes(initialStateData.tableau);
+        int index = 0;
+        foreach(var i in randIndexes) {
             TableauRowData row = initialStateData.tableau[i];
             for (int j = 0; j < row.cards.Count; j++) {
                 SolitaireCard card = manager.CreateCard(row.cards[j].id);
-                Debug.Log(card.id);
                 card.Reveal(row.cards[j].isFaceUp);
-                manager.PlaceCardOnTableau(card, i);    // TODO: Índice de prueba. Cambiar más tarde.
+                manager.PlaceCardOnTableau(card, index);
             }
+            index++;
         }
-        */
     }
-
 }
 
 [Serializable]

@@ -97,20 +97,36 @@ public class SolitaireManager : MonoBehaviour
 
         // Obtener carta top de escalera seleccionada.
         Transform topCard = tableauPiles[index];
-        while (topCard.childCount > 0) topCard = topCard.GetChild(0);
+        if (topCard.CompareTag("SolitaireSlot") && topCard.childCount > 0) { // Primero, revisar si el slot de tableau está vacío.
+            topCard = topCard.GetChild(0);
+            // Si no lo está, revisar cada carta hijo hasta encontrar el último.
+            while (topCard.childCount > 1) topCard = topCard.GetChild(1);
+        }
 
         // Colocar card.
         card.transform.parent = topCard;
-        card.transform.position = new Vector3(0f, yCardOffset, -zCardOffset);
+        if (topCard.CompareTag("SolitaireSlot")) {
+            card.transform.localPosition = new Vector3(0f, 0f, -zCardOffset);
+        } else {
+            card.transform.localPosition = new Vector3(0f, -yCardOffset, -zCardOffset);
+        }
     }
 
-    //~ UTILITIES ~//
-    void Shuffle<T> (List<T> list) {
-        for (int i = 0; i < list.Count; i++) {
-            int r = Random.Range(i, list.Count);
-            T tmp = list[i];
-            list [i] = list[r];
-            list[r] = tmp;
+    public void PlaceCardOnFoundation(SolitaireCard card, CardSuit cardType) {
+        if (foundationCards == null) {
+            foundationCards = new List<SolitaireCard>();
         }
+
+        // Obtener carta top de foundation seleccionada.
+        Transform topCard = foundationPiles[(int)cardType];
+        if (topCard.childCount > 0) { // Primero, revisar si el slot de foundation está vacío.
+            topCard = topCard.GetChild(0);
+            // Si no lo está, revisar cada carta hijo hasta encontrar el último.
+            while (topCard.childCount > 1) topCard = topCard.GetChild(1);
+        }
+
+        // Colocar card.
+        card.transform.parent = topCard;
+        card.transform.localPosition = new Vector3(0f, 0f, -zCardOffset);
     }
 }
