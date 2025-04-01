@@ -8,3 +8,8 @@ public enum CardSuit {
     C,
     S
 }
+
+public enum SlotType {
+    Tableau,
+    Foundation
+}

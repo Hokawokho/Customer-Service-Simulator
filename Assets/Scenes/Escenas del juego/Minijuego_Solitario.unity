@@ -349,8 +349,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5557b2553a4d75588920d357c58350ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yCardOffset: 0.2
+  yCardOffset: 0.55
   zCardOffset: 0.03
+  snapRange: 0.5
   cardPrefab: {fileID: 8372862568050630463, guid: 9f4e7346184183937adc9f1b591074b9, type: 3}
   cardFaces:
   - {fileID: -448900192, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}

@@ -83,6 +83,7 @@ public class SolitaireLoader : MonoBehaviour
         }
         */// } DEBUG
         
+        // Colocar cartas en la foundation.
         List<CardData> foundationCards = initialStateData.foundation.cards;
         string foundationType = initialStateData.foundation.suit[0].ToString();
         for (int i = 0; i < foundationCards.Count; i++) {
@@ -91,6 +92,7 @@ public class SolitaireLoader : MonoBehaviour
             manager.PlaceCardOnFoundation(newCard, (CardSuit)Enum.Parse(typeof(CardSuit), foundationType));
         }
 
+        // Colocar cartas en el tableau.
         int[] randIndexes = Utilities.GetRandomIndexes(initialStateData.tableau);
         int index = 0;
         foreach(var i in randIndexes) {
