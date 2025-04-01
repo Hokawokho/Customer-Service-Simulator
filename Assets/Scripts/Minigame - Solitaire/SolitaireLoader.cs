@@ -43,46 +43,6 @@ public class SolitaireLoader : MonoBehaviour
     }
 
     private void ApplyState() {
-        /* DEBUG {
-        float xOffset = 0f;
-        float zOffset = -0.03f;
-
-        // Comprobar la pila final a completar
-        foreach (CardData card in initialStateData.foundation.cards) {
-            SolitaireCard newCard = manager.CreateCard(card.id);
-            newCard.Reveal(true);
-            newCard.transform.position = new Vector3(-(Camera.main.orthographicSize * Camera.main.aspect) + xOffset,
-                                                    0f,
-                                                    zOffset);
-            
-            xOffset += 1f;
-            zOffset -= 0.03f;
-        }
-
-        xOffset = 0f;
-        zOffset = -0.03f;
-
-        // Comprobar cada escalera del tablero
-        float yTabOffset = -3f;
-        foreach (TableauRowData row in initialStateData.tableau) {
-            float zExtraOffset = -0.1f;
-            foreach (CardData card in row.cards) {
-                SolitaireCard newCard = manager.CreateCard(card.id);
-                newCard.Reveal(true);
-                newCard.transform.position = new Vector3(-(Camera.main.orthographicSize * Camera.main.aspect) + xOffset,
-                                                        yTabOffset,
-                                                        zOffset);
-
-                xOffset += 1f;
-                zOffset -= 0.03f;
-            }
-
-            xOffset = 0f;
-            zOffset += zExtraOffset;
-            yTabOffset -= 1f;
-        }
-        */// } DEBUG
-        
         // Colocar cartas en la foundation.
         List<CardData> foundationCards = initialStateData.foundation.cards;
         string foundationType = initialStateData.foundation.suit[0].ToString();

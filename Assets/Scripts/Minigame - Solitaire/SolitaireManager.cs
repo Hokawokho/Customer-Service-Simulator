@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using Unity.IO.LowLevel.Unsafe;
 using Unity.VisualScripting;
 using UnityEditor.EditorTools;
@@ -23,9 +24,10 @@ public class SolitaireManager : MonoBehaviour
     [SerializeField] private List<Transform> tableauPiles;
     [SerializeField] private List<Transform> foundationPiles;
 
+    //private CardSuit goalFoundation;
     private Dictionary<string, Sprite> dictCardFaces;
-    private List<SolitaireCard>[] tableauCards;
-    private List<SolitaireCard> foundationCards;
+    //private List<SolitaireCard>[] tableauCards;
+    //private List<SolitaireCard> foundationCards;
     private List<SolitaireCard> allCards;
     private List<Transform> snapPoints;
 
@@ -63,34 +65,6 @@ public class SolitaireManager : MonoBehaviour
         //PrepareBoard();
     }
 
-    /*
-    public void PrepareBoard() {
-        deck = GenerateDeck();
-        Shuffle(deck);
-
-        DealCards();
-    }
-
-    public List<SolitaireCard> GenerateDeck() {
-        List<SolitaireCard> newDeck = new List<SolitaireCard>();
-        int faceIndex = 0;
-        foreach (string type in cardSuits) {
-            foreach (string value in cardValues) {
-                var card = Instantiate<SolitaireCard>(cardPrefab);
-                card.SetCard(type+value, cardFaces[faceIndex], this);
-                newDeck.Add(card);
-            }
-        }
-        return newDeck;
-    }
-
-    private void DealCards() {
-        foreach (SolitaireCard card in deck) {
-            card.Reveal();
-        }
-    }
-    */
-
     //~ BOARD SETUP FUNCTIONS ~//
     public SolitaireCard CreateCard(string cardId) {
         SolitaireCard card = Instantiate(cardPrefab);
@@ -104,12 +78,14 @@ public class SolitaireManager : MonoBehaviour
     }
 
     public void PlaceCardOnTableau(SolitaireCard card, int index) {
+        /*
         if (tableauCards == null) {
             tableauCards = new List<SolitaireCard>[7];
         }
         if (tableauCards[index] == null) {
             tableauCards[index] = new List<SolitaireCard>();
         }
+        */
 
         // Obtener carta top de escalera seleccionada.
         Transform topCard = GetTopCard(tableauPiles[index]);
@@ -127,12 +103,21 @@ public class SolitaireManager : MonoBehaviour
     }
 
     public void PlaceCardOnFoundation(SolitaireCard card, CardSuit cardType) {
+        /*
         if (foundationCards == null) {
             foundationCards = new List<SolitaireCard>();
         }
+        */
 
         // Obtener carta top de foundation seleccionada.
         Transform topCard = GetTopCard(foundationPiles[(int)cardType]);
+
+        // En caso de ser la primera carta, establecer cuál es el foundation objetivo.
+        /*
+        if (topCard.CompareTag("SolitaireSlot")) {
+            goalFoundation = cardType;
+        }
+        */
 
         // Colocar card.
         card.transform.parent = topCard;
@@ -145,21 +130,37 @@ public class SolitaireManager : MonoBehaviour
         Debug.Log("BEGINNING OF SNAP FUNCTION (" + card.name + ")");
 
         var (prevSlotType, prevSlotIndex) = FindSlotIndex(card);
-        if (prevSlotIndex < 0) Debug.LogError("Índice del slot padre original no se pudo encontrar");   // DEBUG
-        Debug.Log("Índice del slot padre original encontrado (" + prevSlotIndex + ")! Buscando slot...");
+        if (prevSlotIndex < 0) Debug.LogError("Índice del slot padre original no se pudo encontrar");
+        Debug.Log("Índice del slot padre original encontrado (" + prevSlotIndex + ")! Buscando slot...");   // DEBUG
 
         Transform prevSlot = FindSlot(card, prevSlotType, prevSlotIndex);
-        if (prevSlot == null) Debug.LogError("Índice del slot padre original no se pudo encontrar. Comprueba la jerarquía de SolitaireBoard."); // DEBUG
-        else Debug.Log("Slot encontrado (" + prevSlot.name + ")! Buscando nuevo snap point...");
+        if (prevSlot == null) Debug.LogError("Índice del slot padre original no se pudo encontrar. Comprueba la jerarquía de SolitaireBoard.");
+        Debug.Log("Slot encontrado (" + prevSlot.name + ")! Buscando nuevo snap point...");    // DEBUG
 
         // Encontrar su nuevo padre.
         for (int i = 0; i < snapPoints.Count; i++) {
-            if (Vector2.Distance(snapPoints[i].position, card.position) <= snapRange) {
-                Debug.Log("Nuevo snap point encontrado! (" + snapPoints[i].name + ")"); // DEBUG
-                snapPoints[prevSlotIndex] = card.transform.parent; // Hacer su padre previo un snap point.
+            if (Vector2.Distance(snapPoints[i].position, card.position) <= snapRange
+                && CheckSnapRestrictions(card, snapPoints[i])) {
 
+                Debug.Log("Nuevo snap point encontrado! (" + snapPoints[i].name + ")"); // DEBUG
+
+                // Hacer su padre previo un snap point.
+                /*
+                if (card.transform.parent.CompareTag("SolitaireSlot")
+                    && !card.transform.parent.GetComponent<SolitaireCard>().IsFaceUp) {
+                    
+                    RevealCard(card.transform.parent);
+                } else {
+                    snapPoints[prevSlotIndex] = card.transform.parent;
+                }
+                */
+
+                // TODO:
+                // - Terminar método RevealCard
+
+                // Hacer la carta en la cima del conjunto de cartas que estamos moviendo un snap point.
                 Transform temp = snapPoints[i];
-                snapPoints[i] = GetTopCard(prevSlot);   // Hacer la carta en la cima del conjunto de cartas que estamos moviendo un snap point.
+                snapPoints[i] = GetTopCard(prevSlot);
                 card.transform.parent = temp;
             }
         }
@@ -181,6 +182,53 @@ public class SolitaireManager : MonoBehaviour
         Debug.Log(finalSnapPoints);
         //} DEBUG
     }
+
+    private bool CheckSnapRestrictions(Transform grabbedItem, Transform snapPoint) {
+        SolitaireCard card = grabbedItem.GetComponent<SolitaireCard>();
+        SolitaireCard snapCard = snapPoint.GetComponent<SolitaireCard>();
+        
+        if (snapCard != null) {
+            if (snapCard.IsFaceUp) {
+                bool cond1 = ((card.id[0].ToString().Equals(cardSuits[0]) || card.id[0].ToString().Equals(cardSuits[1]))
+                    && (snapCard.id[0].ToString().Equals(cardSuits[2]) || snapCard.id[0].ToString().Equals(cardSuits[3])))
+                    || ((card.id[0].ToString().Equals(cardSuits[2]) || card.id[0].ToString().Equals(cardSuits[3]))
+                    && (snapCard.id[0].ToString().Equals(cardSuits[0]) || snapCard.id[0].ToString().Equals(cardSuits[1])));
+
+                bool cond2 = (Array.IndexOf(cardValues, card.id[1].ToString()) + 1) == Array.IndexOf(cardValues, snapCard.id[1].ToString());
+
+                return cond1 && cond2;
+            } else {    // La carta sobre la que se quiere hacer snap está boca abajo.
+                return false;
+            }
+        } else {    // El snap point no es una carta, es decir, es un slot vacío.
+            return true;
+        }
+    }
+
+    /*
+    //~ OTHER ~//
+    // Revela carta boca abajo, comprueba si se puede colocar en foundation y lo hace
+    // en caso afirmativo.
+    // Devuelve si es una carta que se pueda colocar en foundation o no.
+    private bool RevealCard(Transform card) {
+        SolitaireCard cardScr = card.GetComponent<SolitaireCard>();
+        cardScr.Reveal(true);
+
+        if (cardScr.id[0].ToString() == goalFoundation.ToString()) {
+            SolitaireCard topFoundationCard = GetTopCard(card).GetComponent<SolitaireCard>();
+
+            if (Array.IndexOf(cardValues, cardScr.id[1].ToString())
+                == (Array.IndexOf(cardValues, topFoundationCard.id[1].ToString()) + 1)) {
+                    // TODO:
+                    // - Colocar carta automáticamente en foundation.
+                    // - Hacer mismo proceso de comprobación a carta que estaba justo debajo
+                    //   antes de mover la carta.
+            }
+        }
+
+        throw new NotImplementedException();
+    }
+    */
 
     //~ UTILITIES ~//
     // Devuelve la carta arriba del todo de la pila que le pases (foundation o escalera de tableau)
