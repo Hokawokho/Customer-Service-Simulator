@@ -1,52 +1,9 @@
 {
     "foundation": {
         "suit": "H",
-        "cards":[
-            {
-                "id": "HA",
-                "isFaceUp": true
-            },
-            {
-                "id": "H2",
-                "isFaceUp": true
-            },
-            {
-                "id": "H3",
-                "isFaceUp": true
-            },
-            {
-                "id": "H4",
-                "isFaceUp": true
-            },
-            {
-                "id": "H5",
-                "isFaceUp": true
-            },
-            {
-                "id": "H6",
-                "isFaceUp": true
-            },
-            {
-                "id": "H7",
-                "isFaceUp": true
-            },
-            {
-                "id": "H8",
-                "isFaceUp": true
-            },
-            {
-                "id": "H9",
-                "isFaceUp": true
-            },
-            {
-                "id": "H0",
-                "isFaceUp": true
-            },
-            {
-                "id": "HJ",
-                "isFaceUp": true
-            }
-        ]
+        "topCard": {
+            "id": "HJ"
+        }
     },
     "tableau": [
         {

@@ -5,30 +5,31 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using Unity.IO.LowLevel.Unsafe;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEditor.EditorTools;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SolitaireManager : MonoBehaviour
 {
-    private static readonly string[] cardSuits = new string[] { "H", "D", "C", "S" };
-    private static readonly string[] cardValues = new string[] { "A", "2", "3", "4", "5", "6", "7", "8", "9", "0", "J", "Q", "K" };
+    public static readonly string[] cardSuits = new string[] { "H", "D", "C", "S" };
+    public static readonly string[] cardValues = new string[] { "A", "2", "3", "4", "5", "6", "7", "8", "9", "0", "J", "Q", "K" };
 
     [Header("Parámetros posición de cartas")]
     public float yCardOffset = 0.55f;
     public float zCardOffset = 0.03f;
-    [Header("Parámetros snap de cartas")]
+    [Header("Parámetros snap y movimiento de cartas")]
     public float snapRange = 0.7f;
+    public float moveSpeed = 30f;
     [Header("GameObjects & Scripts")]
-    [SerializeField] private SolitaireCard cardPrefab;
+    [SerializeField] private GameObject cardPrefab;
     [SerializeField] private Sprite[] cardFaces;
     [SerializeField] private List<Transform> tableauPiles;
     [SerializeField] private List<Transform> foundationPiles;
 
     private CardSuit goalFoundation;
     private Dictionary<string, Sprite> dictCardFaces;
-    //private List<SolitaireCard>[] tableauCards;
-    //private List<SolitaireCard> foundationCards;
-    private List<SolitaireCard> allCards;
+    private Queue<Transform> movingCards;
     private List<Transform> snapPoints;
 
     //~ SETUP ~//
@@ -56,8 +57,9 @@ public class SolitaireManager : MonoBehaviour
             }
         }
 
-        // Preparación snap.
+        // Otras preparaciones.
         snapPoints = tableauPiles.ToList();
+        movingCards = new Queue<Transform>();
     }
 
     void Update()
@@ -65,11 +67,32 @@ public class SolitaireManager : MonoBehaviour
         // Comprobar si las top cards se pueden colocar en el goal foundation.
         for (int i = 0; i < tableauPiles.Count; i++) {
             Transform topCard = GetTopCard(tableauPiles[i]);
-            bool placed = PutCardOnFoundation(topCard);
+            
+            if (MoveCardToFoundation(topCard.transform)) {
+                movingCards.Enqueue(topCard);
+            }
         }
 
-        if (GetTopCard(foundationPiles[(int)goalFoundation]).GetComponent<SolitaireCard>().id
-            == (goalFoundation.ToString() + "K")) {
+        // Mover cartas a foundation.
+        if (movingCards.Count > 0) {
+            Transform card = movingCards.Peek();
+            Transform target = foundationPiles[(int)goalFoundation];
+        
+            card.position = Vector2.MoveTowards(card.position, target.position, moveSpeed * Time.deltaTime);
+            if (Vector2.Distance(card.position, target.position) < 0.01f) {
+                Transform topFoundationCard = GetTopCard(target);
+
+                card.parent = topFoundationCard;
+                card.localPosition = new Vector3(0f, 0f, -zCardOffset);
+                movingCards.Dequeue();
+            }
+        }
+
+        // Condición de victoria.
+        if (GetTopCard(foundationPiles[(int)goalFoundation]).CompareTag("SolitaireSlot")) return;
+        if ((GetTopCard(foundationPiles[(int)goalFoundation]).GetComponent<SolitaireCard>().id
+            == (goalFoundation.ToString() + "K"))
+            && movingCards.Count == 0) {
             
             MinigameWon();
         }
@@ -77,26 +100,15 @@ public class SolitaireManager : MonoBehaviour
 
     //~ BOARD SETUP FUNCTIONS ~//
     public SolitaireCard CreateCard(string cardId) {
-        SolitaireCard card = Instantiate(cardPrefab);
-        card.SetCard(cardId, dictCardFaces[cardId], this);
-        card.dragEndedDelegate = SnapCard;  // Dar funcionalidad de snap a carta.
-        
-        if (allCards == null) allCards = new List<SolitaireCard>();
-        allCards.Add(card);
+        GameObject card = Instantiate(cardPrefab);
+        SolitaireCard cardScr = card.GetComponent<SolitaireCard>();
+        cardScr.SetCard(cardId, dictCardFaces[cardId], this);
+        cardScr.dragEndedDelegate = SnapCard;  // Dar funcionalidad de snap a carta.
 
-        return card;
+        return cardScr;
     }
 
     public void PlaceCardOnTableau(SolitaireCard card, int index) {
-        /*
-        if (tableauCards == null) {
-            tableauCards = new List<SolitaireCard>[7];
-        }
-        if (tableauCards[index] == null) {
-            tableauCards[index] = new List<SolitaireCard>();
-        }
-        */
-
         // Obtener carta top de escalera seleccionada.
         Transform topCard = GetTopCard(tableauPiles[index]);
 
@@ -113,12 +125,6 @@ public class SolitaireManager : MonoBehaviour
     }
 
     public void PlaceCardOnFoundation(SolitaireCard card, CardSuit cardType) {
-        /*
-        if (foundationCards == null) {
-            foundationCards = new List<SolitaireCard>();
-        }
-        */
-
         // Obtener carta top de foundation seleccionada.
         Transform topCard = GetTopCard(foundationPiles[(int)cardType]);
 
@@ -134,9 +140,9 @@ public class SolitaireManager : MonoBehaviour
 
     //~ GESTIÓN SNAP ~//
     public void SnapCard(Transform card) {
-        // Encontrar SolitaireSlot padre original y su índice.
         //Debug.Log("BEGINNING OF SNAP FUNCTION (" + card.name + ")");    // DEBUG
 
+        // Encontrar SolitaireSlot padre original y su índice.
         var (prevSlotType, prevSlotIndex) = FindSlotIndex(card);
         if (prevSlotIndex < 0) Debug.LogError("Índice del slot padre original no se pudo encontrar");
         //Debug.Log("Índice del slot padre original encontrado (" + prevSlotIndex + ")! Buscando slot...");   // DEBUG
@@ -153,7 +159,9 @@ public class SolitaireManager : MonoBehaviour
                 //Debug.Log("Nuevo snap point encontrado! (" + snapPoints[i].name + ")"); // DEBUG
                 
                 // Hacer su padre previo un snap point.
-                card.parent.GetComponent<SolitaireCard>().Reveal(true);
+                if (!card.parent.CompareTag("SolitaireSlot")) {
+                    card.parent.GetComponent<SolitaireCard>().Reveal(true);
+                }
                 snapPoints[prevSlotIndex] = card.parent;
 
                 // Hacer la carta en la cima del conjunto de cartas que estamos moviendo un snap point.
@@ -199,51 +207,15 @@ public class SolitaireManager : MonoBehaviour
                 return false;
             }
         } else {    // El snap point no es una carta, es decir, es un slot vacío.
-            return true;
+            return card.id[1].ToString() == "K";
         }
     }
 
     //~ OTHER ~//
-    /*
-    // Revela carta boca abajo, comprueba si se puede colocar en foundation y lo hace
-    // en caso afirmativo, haciendo el mismo proceso entonces a la carta que se encontraba
-    // justo debajo.
-    // Devuelve la carta que se queda como top card de esa pila después de todo el proceso.
-    private Transform RevealCard(Transform card) {
-        SolitaireCard cardScr = card.GetComponent<SolitaireCard>();
-        cardScr.Reveal(true);
-
-        // Al ser función recursiva, parar si la pila se encuentra vacía.
-        if (card.CompareTag("SolitaireSlot")) {
-            return card;
-        }
-
-        // Comprobar condiciones para que carta se coloque en foundation.
-        if (cardScr.id[0].ToString() == goalFoundation.ToString()) {
-            SolitaireCard topFoundationCard = GetTopCard(card).GetComponent<SolitaireCard>();
-            Transform underCard = card.parent;
-
-            // Si la carta a colocar es inmediatamente mayor a la top card.
-            if (Array.IndexOf(cardValues, cardScr.id[1].ToString())
-                == (Array.IndexOf(cardValues, topFoundationCard.id[1].ToString()) + 1)) {
-                    
-                card.parent = topFoundationCard.transform;
-                RevealCard(underCard);
-                
-            } else {
-                return underCard;
-            }
-        } else {
-            return card;
-        }
-
-        throw new NotImplementedException();
-    }
-    */
-
     // Comprueba si la carta se puede poner en el foundation, y lo hace si es el caso.
-    // Devuelve true si la carta se ha colocado en el foundation.
-    private bool PutCardOnFoundation(Transform card) {
+    // Devuelve true si la carta se puede colocar en el foundation y comienza el proceso
+    // de moverlo.
+    private bool MoveCardToFoundation(Transform card) {
         SolitaireCard cardScr = card.GetComponent<SolitaireCard>();
 
         if (card.CompareTag("SolitaireSlot")) { // No es una carta.
@@ -251,15 +223,16 @@ public class SolitaireManager : MonoBehaviour
         }
 
         if (cardScr.id[0].ToString() == goalFoundation.ToString()) {
-            SolitaireCard topFoundationCard = GetTopCard(foundationPiles[(int)goalFoundation]).GetComponent<SolitaireCard>();
+            Transform foundationSlot = foundationPiles[(int)goalFoundation];
+            SolitaireCard topFoundationCard = GetTopCard(foundationSlot).GetComponent<SolitaireCard>();
             Transform underCard = card.parent;
 
             if (Array.IndexOf(cardValues, cardScr.id[1].ToString())
                 == (Array.IndexOf(cardValues, topFoundationCard.id[1].ToString()) + 1)) {
                 
-                // Colocar carta en foundation
-                card.parent = topFoundationCard.transform;
-                card.localPosition = new Vector3(0f, 0f, -zCardOffset);
+                // Cambiar padre a top card del foundation.
+                card.parent = null; // Se establecerá correctamente en update.
+                card.GetComponent<SolitaireCard>().SetDraggable(false);
 
                 // Hacer la carta que se encontraba debajo el snap point.
                 var (_, underCardIndex) = FindSlotIndex(underCard);
@@ -274,12 +247,23 @@ public class SolitaireManager : MonoBehaviour
         }
     }
 
+    // TODO: Hay que añadir escenas al build y cargarlo usando su build index o algo parecido.
+    // Aparte, hay que cambiar como se reinicia el nivel. Opciones:
+    // 1. Acceder a un método en futuro GameManager.
+    // 2. 
+    void OnGUI() {
+        if (GUI.Button(new Rect (10, 10, 60, 20), "Reiniciar")) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
     private void MinigameWon() {
         // TEMPORAL. En el futuro habrá un game manager que se ocupe de cerrar y/o
         // cambiar escena, o de cerrar el juego.
+        FindObjectOfType<SolitaireLoader>().MinigameWon();
         Debug.Log("VICTORY!");
         #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
+            EditorApplication.isPlaying = false;
         #else
             Application.Quit();
         #endif

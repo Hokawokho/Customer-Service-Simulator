@@ -13,6 +13,7 @@ public class SolitaireLoader : MonoBehaviour
     private string stateFolderPath;
     private List<string> stateFiles;
     private StateData initialStateData;
+    private static int randState = -1;  // Estático para que se mantenga igual al darle a restart.
 
     [SerializeField] private SolitaireManager manager;
     
@@ -24,6 +25,7 @@ public class SolitaireLoader : MonoBehaviour
         stateFolderPath = Application.dataPath + "/Data/Solitaire";
 
         LoadState();
+        ApplyState();
     }
 
     private void LoadState() {
@@ -34,21 +36,22 @@ public class SolitaireLoader : MonoBehaviour
             return;
         }
 
-        int r = Random.Range(0, stateFiles.Count);
-        string selectedFile = stateFiles[r];
+        if (randState == -1) randState = Random.Range(0, stateFiles.Count);
+        string selectedFile = stateFiles[randState];
         string json = File.ReadAllText(selectedFile);
 
         initialStateData = JsonUtility.FromJson<StateData>(json);
-        ApplyState();
     }
 
     private void ApplyState() {
         // Colocar cartas en la foundation.
-        List<CardData> foundationCards = initialStateData.foundation.cards;
-        string foundationType = initialStateData.foundation.suit[0].ToString();
-        for (int i = 0; i < foundationCards.Count; i++) {
-            SolitaireCard newCard = manager.CreateCard(foundationCards[i].id);
+        CardData foundationCard = initialStateData.foundation.topCard;
+        string foundationType = initialStateData.foundation.suit;
+        int valueIndex = Array.IndexOf(SolitaireManager.cardValues, foundationCard.id[1].ToString());
+        for (int i = 0; i <= valueIndex; i++) {
+            SolitaireCard newCard = manager.CreateCard(foundationType + SolitaireManager.cardValues[i]);
             newCard.Reveal(true);
+            newCard.SetDraggable(false);
             manager.PlaceCardOnFoundation(newCard, (CardSuit)Enum.Parse(typeof(CardSuit), foundationType));
         }
 
@@ -65,12 +68,16 @@ public class SolitaireLoader : MonoBehaviour
             index++;
         }
     }
+
+    public void MinigameWon() {
+        randState = -1; // Se devuelve a -1 para que la siguiente vez que salga el minijuego se cargue un estado distinto.
+        Destroy(gameObject);
+    }
 }
 
 [Serializable]
 public class StateData
 {
-    //public List<CardData> deck;
     public FoundationData foundation;
     public List<TableauRowData> tableau;
 }
@@ -84,7 +91,7 @@ public class CardData {
 [Serializable]
 public class FoundationData {
     public string suit;
-    public List<CardData> cards;
+    public CardData topCard;
 }
 
 [Serializable]

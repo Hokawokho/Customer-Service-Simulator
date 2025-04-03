@@ -10,8 +10,10 @@ public class SolitaireCard : MonoBehaviour
     private SolitaireManager manager;
 
     private bool _isDragged = false;
+    private bool _isMoving = false;
     private Vector3 _mouseDragStartPos;
     private Vector3 _cardDragStartPos;
+    private bool _draggable = true;
 
 
     public delegate void DragEndedDelegate(Transform transform);
@@ -37,10 +39,23 @@ public class SolitaireCard : MonoBehaviour
         backOfCard.SetActive(!cond);
     }
 
+    public void SetDraggable(bool cond) {
+        _draggable = cond;
+    }
+
+    public void SetMoving(bool cond) {
+        _isMoving = cond;
+    }
+
+    public bool IsMoving {
+        get { return _isMoving; }
+    }
+
     //~ EVENT FUNCTIONS ~//
     void OnMouseDown()
     {
-        if (!IsFaceUp) return;
+        if (!IsFaceUp || !_draggable) return;
+
         _isDragged = true;
         _mouseDragStartPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         _cardDragStartPos = transform.position;
@@ -50,6 +65,8 @@ public class SolitaireCard : MonoBehaviour
 
     void OnMouseDrag()
     {
+        if (!IsFaceUp || !_draggable) return;
+
         if (_isDragged) {
             transform.position = _cardDragStartPos + (Camera.main.ScreenToWorldPoint(Input.mousePosition) - _mouseDragStartPos);
         }
@@ -57,6 +74,8 @@ public class SolitaireCard : MonoBehaviour
 
     void OnMouseUp()
     {
+        if (!IsFaceUp || !_draggable) return;
+        
         _isDragged = false;
         ChangeCardsSortLayer();
         dragEndedDelegate(transform);

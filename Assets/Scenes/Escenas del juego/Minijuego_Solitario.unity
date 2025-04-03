@@ -147,12 +147,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 86483242}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.3625841, y: 0.05876507, z: -0.05038501}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1941881139}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &86483244
 MonoBehaviour:
@@ -333,8 +333,7 @@ Transform:
   m_LocalPosition: {x: 1.3625841, y: 0.05876507, z: -0.05038501}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 86483243}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1941881140
@@ -351,8 +350,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yCardOffset: 0.55
   zCardOffset: 0.03
-  snapRange: 0.5
-  cardPrefab: {fileID: 8372862568050630463, guid: 9f4e7346184183937adc9f1b591074b9, type: 3}
+  snapRange: 0.7
+  moveSpeed: 30
+  cardPrefab: {fileID: 1755540703728290302, guid: 9f4e7346184183937adc9f1b591074b9, type: 3}
   cardFaces:
   - {fileID: -448900192, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
   - {fileID: -465951546, guid: 70c0834784f8dfb3d9fcc6655761ea05, type: 3}
@@ -493,3 +493,4 @@ SceneRoots:
   - {fileID: 938785775}
   - {fileID: 1218331983732523546}
   - {fileID: 1941881139}
+  - {fileID: 86483243}
