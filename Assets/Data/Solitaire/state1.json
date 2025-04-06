@@ -1,0 +1,106 @@
+{
+    "foundation": {
+        "suit": "H",
+        "topCard": {
+            "id": "HJ"
+        }
+    },
+    "tableau": [
+        {
+            "cards": [
+                {
+                    "id": "HK",
+                    "isFaceUp": false
+                },
+                {
+                    "id": "C0",
+                    "isFaceUp": true
+                },
+                {
+                    "id": "D9",
+                    "isFaceUp": true
+                },
+                {
+                    "id": "S8",
+                    "isFaceUp": true
+                }
+            ]
+        },
+        {
+            "cards": [
+                {
+                    "id": "HQ",
+                    "isFaceUp": true
+                },
+                {
+                    "id": "SJ",
+                    "isFaceUp": true
+                }
+            ]
+        },
+        {
+            "cards": [
+                {
+                    "id": "DJ",
+                    "isFaceUp": false
+                },
+                {
+                    "id": "D0",
+                    "isFaceUp": true
+                },
+                {
+                    "id": "C9",
+                    "isFaceUp": true
+                }
+            ]
+        },
+        {
+            "cards": [
+                {
+                    "id": "DQ",
+                    "isFaceUp": true
+                }
+            ]
+        },
+        {
+            "cards": [
+                {
+                    "id": "D8",
+                    "isFaceUp": true
+                }
+            ]
+        },
+        {
+            "cards": [
+                {
+                    "id": "DA",
+                    "isFaceUp": false
+                },
+                {
+                    "id": "C7",
+                    "isFaceUp": true
+                },
+                {
+                    "id": "D6",
+                    "isFaceUp": true
+                },
+                {
+                    "id": "S5",
+                    "isFaceUp": true
+                },
+                {
+                    "id": "D4",
+                    "isFaceUp": true
+                }
+            ]
+        },
+        {
+            "cards": [
+                {
+                    "id": "CA",
+                    "isFaceUp": true
+                }
+            ]
+        }
+    ]
+}
