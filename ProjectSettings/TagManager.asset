@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fly
+  - SolitaireSlot
   layers:
   - Default
   - TransparentFX
@@ -47,6 +48,9 @@ TagManager:
     locked: 0
   - name: Level
     uniqueID: 109214507
+    locked: 0
+  - name: Interactables
+    uniqueID: 167015643
     locked: 0
   - name: Characters
     uniqueID: 1031403459
