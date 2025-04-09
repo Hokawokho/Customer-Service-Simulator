@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Build.Content;
 using UnityEngine;
 
-public class MainMenuManager : MonoBehaviour
+public class MainMenuController : MonoBehaviour
 {
     [SerializeField] private AudioClip mainMenuTheme;
 
@@ -14,10 +14,6 @@ public class MainMenuManager : MonoBehaviour
 
     public void StartGame() {
         GeneralManager.Instance.GoToMainGameScene();
-    }
-
-    public void Credits() {
-        //TODO
     }
 
     public void QuitGame() {
