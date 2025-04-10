@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6938684928742249783}
   - component: {fileID: 7093276602864901545}
   - component: {fileID: 4867554474711536168}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 8888948936861175872}
   - component: {fileID: 3965064180999388364}
   - component: {fileID: 2120101318902207071}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FlySwatter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1114833849
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: cad48ca1df01e59188013f2a798043bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -293,7 +293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4194135546566065827}
   - component: {fileID: 3441618971998904819}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HitFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,7 +354,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1114833849
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -253,7 +253,6 @@ public class SolitaireManager : MonoBehaviour
     // 2. 
     void OnGUI() {
         if (GUI.Button(new Rect (10, 10, 60, 20), "Reiniciar")) {
-            GeneralManager.Instance.RestartScene();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }

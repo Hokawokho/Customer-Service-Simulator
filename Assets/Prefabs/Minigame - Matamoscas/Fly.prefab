@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5501049103644761036}
   - component: {fileID: 6268277164873250445}
   - component: {fileID: 1530959470569868790}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fly
   m_TagString: Fly
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1031403459
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 372290009, guid: 32a12de709183c0e6b8961f36a1266bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
