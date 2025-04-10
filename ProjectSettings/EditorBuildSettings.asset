@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Prueba/Jordi/PlataformasMinigame.unity
     guid: e22ded8fde3e137428ab48b5228f2c66
+  - enabled: 1
+    path: Assets/Scenes/Escenas del juego/Matamoscas2.0.unity
+    guid: b8684b08af2f8a9429a3c45bc6d32d1a
   m_configObjects: {}
