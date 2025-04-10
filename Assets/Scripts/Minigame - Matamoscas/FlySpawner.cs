@@ -55,13 +55,7 @@ public class FlySpawner : MonoBehaviour
     }
 
     private void MinigameWon() {
-        // TEMPORAL. En el futuro habrá un game manager que se ocupe de cerrar y/o
-        // cambiar escena, o de cerrar el juego.
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #else
-            Application.Quit();
-        #endif
+        GeneralManager.Instance.MinigameWon(MinigameEnum.Matamoscas);
     }
 
     private IEnumerator IncreaseDifficulty() {
