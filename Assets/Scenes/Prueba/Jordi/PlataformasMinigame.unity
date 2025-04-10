@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 300763050}
   - component: {fileID: 300763052}
   - component: {fileID: 300763051}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: WoodsFrontRight (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 388394621}
   - component: {fileID: 388394622}
   - component: {fileID: 388394623}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: WoodsFrontRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +292,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1031403459
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 4a0bf6774f40eeb419adfda6b54d5c1f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1634,7 +1634,7 @@ GameObject:
   - component: {fileID: 710627265}
   - component: {fileID: 710627267}
   - component: {fileID: 710627266}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: WOODS - Third
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1735,7 +1735,7 @@ GameObject:
   - component: {fileID: 876637993}
   - component: {fileID: 876637998}
   - component: {fileID: 876637997}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1847,7 +1847,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1114833849
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 487161373, guid: a2e2ec4aaf6ee4f45911e37dd46448fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1930,7 +1930,7 @@ GameObject:
   - component: {fileID: 908548129}
   - component: {fileID: 908548131}
   - component: {fileID: 908548130}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: VINES - Second
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2028,7 +2028,7 @@ GameObject:
   - component: {fileID: 978246885}
   - component: {fileID: 978246886}
   - component: {fileID: 978246887}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: WoodsFrontLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2089,7 +2089,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1031403459
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 4a0bf6774f40eeb419adfda6b54d5c1f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2125,7 +2125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1048120341}
   - component: {fileID: 1048120340}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2173,7 +2173,7 @@ GameObject:
   - component: {fileID: 1088457194}
   - component: {fileID: 1088457196}
   - component: {fileID: 1088457195}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: WOODS - Second
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2271,7 +2271,7 @@ GameObject:
   - component: {fileID: 1141437688}
   - component: {fileID: 1141437690}
   - component: {fileID: 1141437689}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BackgroundDetails
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2391,7 +2391,7 @@ GameObject:
   - component: {fileID: 1275735950}
   - component: {fileID: 1275735952}
   - component: {fileID: 1275735951}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: WOODS - Fourth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2489,7 +2489,7 @@ GameObject:
   - component: {fileID: 1588843077}
   - component: {fileID: 1588843079}
   - component: {fileID: 1588843078}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BACKGROUND
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2576,104 +2576,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1589555351
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1589555352}
-  - component: {fileID: 1589555354}
-  - component: {fileID: 1589555353}
-  m_Layer: 6
-  m_Name: WOODS - First (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1589555352
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589555351}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 18.09, z: 0}
-  m_LocalScale: {x: 2.1373, y: 2.1373, z: 2.1373}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1719097036}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1589555353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589555351}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 711c7e1feec18db46ab047a7b5e37145, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parallaxFraction: {x: 1, y: 1}
---- !u!212 &1589555354
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589555351}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1086405517
-  m_SortingLayer: 1
-  m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 4a0bf6774f40eeb419adfda6b54d5c1f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 20.48, y: 11.52}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &1719097035
 GameObject:
   m_ObjectHideFlags: 0
@@ -2683,7 +2585,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1719097036}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BACKGROUND
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2707,7 +2609,6 @@ Transform:
   - {fileID: 1088457194}
   - {fileID: 710627265}
   - {fileID: 1790611746}
-  - {fileID: 1589555352}
   - {fileID: 908548129}
   - {fileID: 2059534945}
   - {fileID: 1588843077}
@@ -2724,7 +2625,7 @@ GameObject:
   - component: {fileID: 1790611746}
   - component: {fileID: 1790611748}
   - component: {fileID: 1790611747}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: WOODS - First
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2826,7 +2727,7 @@ GameObject:
   - component: {fileID: 1800729037}
   - component: {fileID: 1800729036}
   - component: {fileID: 1800729042}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3567,7 +3468,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1981402278}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FRONTGROUND
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3604,8 +3505,8 @@ GameObject:
   - component: {fileID: 2027787351}
   - component: {fileID: 2027787350}
   - component: {fileID: 2027787353}
-  m_Layer: 6
-  m_Name: PlatformerCam
+  m_Layer: 0
+  m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3618,7 +3519,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2027787349}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &2027787351
 Camera:
   m_ObjectHideFlags: 0
@@ -3628,8 +3529,8 @@ Camera:
   m_GameObject: {fileID: 2027787349}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3660,8 +3561,8 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: d7828a1f4a5a0b64185b624f0f08ec6d, type: 2}
-  m_TargetDisplay: 1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -3710,7 +3611,7 @@ GameObject:
   - component: {fileID: 2059534945}
   - component: {fileID: 2059534947}
   - component: {fileID: 2059534946}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BUSH - BACKGROUND
   m_TagString: Untagged
   m_Icon: {fileID: 0}
