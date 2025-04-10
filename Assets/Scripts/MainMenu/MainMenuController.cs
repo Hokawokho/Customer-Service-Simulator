@@ -10,7 +10,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private GameObject closeBttn;
 
     private bool _creditsMoving;
-
+//+++
     void Start()
     {
         if (mainMenuTheme != null) GeneralManager.Instance.audioManager.PlayMusic(mainMenuTheme);
