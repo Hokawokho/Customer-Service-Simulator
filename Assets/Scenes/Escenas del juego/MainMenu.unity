@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 13602545}
   - component: {fileID: 13602547}
   - component: {fileID: 13602546}
+  - component: {fileID: 13602548}
   m_Layer: 5
   m_Name: CreditsPanel
   m_TagString: Untagged
@@ -158,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -150, y: 0}
+  m_AnchoredPosition: {x: 700, y: 0}
   m_SizeDelta: {x: 650, y: 800}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &13602546
@@ -199,6 +200,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13602544}
   m_CullTransparentMesh: 1
+--- !u!95 &13602548
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13602544}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: afdb6b051ca6b6f4d8d82f5d91e87139, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &51397713
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &51397714
 RectTransform:
   m_ObjectHideFlags: 0
@@ -281,10 +303,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 13602544}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 2137524904}
+        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+        m_MethodName: CreditsClose
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1368,23 +1390,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 959806486022867271, guid: 9b79bfc860e3e2b46876481b4583c326, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 959806486022867271, guid: 9b79bfc860e3e2b46876481b4583c326, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 13602544}
+      objectReference: {fileID: 2137524904}
     - target: {fileID: 959806486022867271, guid: 9b79bfc860e3e2b46876481b4583c326, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 959806486022867271, guid: 9b79bfc860e3e2b46876481b4583c326, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
+      value: Credits
       objectReference: {fileID: 0}
     - target: {fileID: 959806486022867271, guid: 9b79bfc860e3e2b46876481b4583c326, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: MainMenuController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 959806486022867271, guid: 9b79bfc860e3e2b46876481b4583c326, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
@@ -1396,7 +1418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3743648272331908673, guid: 9b79bfc860e3e2b46876481b4583c326, type: 3}
       propertyPath: m_Name
-      value: MenuBttn
+      value: CreditsBttn
       objectReference: {fileID: 0}
     - target: {fileID: 8976629759887625715, guid: 9b79bfc860e3e2b46876481b4583c326, type: 3}
       propertyPath: m_Pivot.x
@@ -1870,6 +1892,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuTheme: {fileID: 0}
+  creditsPanelAnimator: {fileID: 13602548}
+  closeBttn: {fileID: 51397713}
 --- !u!1001 &4826823940140458758
 PrefabInstance:
   m_ObjectHideFlags: 0

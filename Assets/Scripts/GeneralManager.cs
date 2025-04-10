@@ -54,7 +54,7 @@ public class GeneralManager : Singleton<GeneralManager>
 
     public void GoToMainGameScene() {
         if (MAIN_GAME_SCENE_INDEX < 0) {
-            Debug.LogError("Escena prncipal no implementada o añadida a la build.");
+            Debug.LogError("Escena principal no implementada o añadida a la build.");
             return;
         }
         SceneManager.LoadScene(MAIN_GAME_SCENE_INDEX);
