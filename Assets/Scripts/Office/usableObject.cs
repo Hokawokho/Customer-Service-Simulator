@@ -24,19 +24,21 @@ public class usableObject : MonoBehaviour
     [Tooltip("Intensidad del parpadeo del objeto")]
     public float blinkIntensity = 0.15f;
 
-    private Vector3 originalScale;
-    private Vector3 targetScale;
-    private Vector3 originalPosition;
-    private Vector3 targetOffset;
-    private Vector3 targetPosition;
+    protected Vector3 originalScale;
+    protected Vector3 targetScale;
+    protected Vector3 originalPosition;
+    protected Vector3 targetOffset;
+    protected Vector3 targetPosition;
 
-    private SpriteRenderer sr;
-    private Color originalColor;
-    private bool isBlinking = true;
+    protected SpriteRenderer sr;
+    protected Color originalColor;
+    protected bool isBlinking = true;
+    protected Collider2D col;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
+        col = GetComponent<Collider2D>();
         originalScale = transform.localScale;
         targetScale = originalScale;
         originalPosition = transform.localPosition;
@@ -54,7 +56,7 @@ public class usableObject : MonoBehaviour
         }
     }
 
-    void OnMouseEnter()
+    protected virtual void OnMouseEnter()
     {
         Debug.Log("Mouse entered " + gameObject.name);
         if(sr != null){
@@ -66,7 +68,7 @@ public class usableObject : MonoBehaviour
 
     }
 
-    void OnMouseExit()
+    protected virtual void OnMouseExit()
     {
         Debug.Log("Mouse exited " + gameObject.name);
         isBlinking = true;
@@ -74,21 +76,50 @@ public class usableObject : MonoBehaviour
         targetPosition = originalPosition;
     }
 
-    void OnMouseDown()
+    protected virtual void OnMouseDown()
     {
         // Agregar aqui la logica de interaccion con el objeto
         Debug.Log("Interacting with " + gameObject.name);
     }
 
+    protected virtual void OnDisable()
+    {
+        if(sr != null){
+            sr.color = originalColor;
+        }
+        isBlinking = false;
+        targetScale = originalScale;
+        targetPosition = originalPosition;
+        if(col != null){
+            col.enabled = false;
+        }
+    }
+
+    protected virtual void OnEnable()
+    {
+        if(col != null){
+            col.enabled = true;
+        }
+    }
+
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * highlightSpeed);
         transform.localPosition = Vector3.Lerp(transform.localPosition, targetPosition, Time.deltaTime * highlightSpeed);
         if(isBlinking && sr != null)
         {
-            float phase = (Mathf.Sin(Time.time * blinkFrequency) + 1f)/2f;;
+            float phase = (Mathf.Sin(Time.time * blinkFrequency) + 1f)/2f;
             sr.color = new Color(1f - blinkIntensity * phase, 1f, 1f - blinkIntensity * phase, 1f);
         }
+    }
+
+    public virtual void DisableMe()
+    {
+        gameObject.SetActive(false);
+    }
+    public virtual void EnableMe()
+    {
+        gameObject.SetActive(true);
     }
 }
