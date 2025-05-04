@@ -385,10 +385,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 274591061}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 50}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 275, y: -125}
+  m_SizeDelta: {x: 550, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &128021922
 MonoBehaviour:
@@ -413,7 +413,7 @@ MonoBehaviour:
   m_text: Daniel Banegas Reyes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
-  m_sharedMaterial: {fileID: 706649573893688320, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
+  m_sharedMaterial: {fileID: 8081519350549753524, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -519,10 +519,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 274591061}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 100}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 275, y: -50}
+  m_SizeDelta: {x: 550, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &185287985
 MonoBehaviour:
@@ -547,7 +547,7 @@ MonoBehaviour:
   m_text: "Cr\xE9ditos"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ef13864c3533625cc94ec86cf8aa6d36, type: 2}
-  m_sharedMaterial: {fileID: 4247557217074377891, guid: ef13864c3533625cc94ec86cf8aa6d36, type: 2}
+  m_sharedMaterial: {fileID: 3945121135230784275, guid: ef13864c3533625cc94ec86cf8aa6d36, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1020,10 +1020,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 274591061}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 50}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 275, y: -175}
+  m_SizeDelta: {x: 550, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &793346342
 MonoBehaviour:
@@ -1048,7 +1048,7 @@ MonoBehaviour:
   m_text: "Jordi Peir\xF3 Puig"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
-  m_sharedMaterial: {fileID: 706649573893688320, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
+  m_sharedMaterial: {fileID: 8081519350549753524, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1384,6 +1384,18 @@ PrefabInstance:
       propertyPath: m_text
       value: "Cr\xE9ditos"
       objectReference: {fileID: 0}
+    - target: {fileID: 563568581237588204, guid: 074159040d791687b9bf7f82cb8fe27c, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
+    - target: {fileID: 563568581237588204, guid: 074159040d791687b9bf7f82cb8fe27c, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8081519350549753524, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
+    - target: {fileID: 563568581237588204, guid: 074159040d791687b9bf7f82cb8fe27c, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 959806486022867271, guid: 074159040d791687b9bf7f82cb8fe27c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -1538,10 +1550,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 274591061}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 50}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 275, y: -225}
+  m_SizeDelta: {x: 550, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1459417890
 MonoBehaviour:
@@ -1566,7 +1578,7 @@ MonoBehaviour:
   m_text: "Lucas Gallego Catal\xE1n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
-  m_sharedMaterial: {fileID: 706649573893688320, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
+  m_sharedMaterial: {fileID: 8081519350549753524, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1757,6 +1769,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GeneralManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7306891242568420951, guid: fa078ef45ffe3b7a2a5bb6d094874fc4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9017326774453011132, guid: fa078ef45ffe3b7a2a5bb6d094874fc4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1773,6 +1793,18 @@ PrefabInstance:
     - target: {fileID: 563568581237588204, guid: 074159040d791687b9bf7f82cb8fe27c, type: 3}
       propertyPath: m_text
       value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 563568581237588204, guid: 074159040d791687b9bf7f82cb8fe27c, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
+    - target: {fileID: 563568581237588204, guid: 074159040d791687b9bf7f82cb8fe27c, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8081519350549753524, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
+    - target: {fileID: 563568581237588204, guid: 074159040d791687b9bf7f82cb8fe27c, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 959806486022867271, guid: 074159040d791687b9bf7f82cb8fe27c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1907,6 +1939,18 @@ PrefabInstance:
     - target: {fileID: 563568581237588204, guid: 074159040d791687b9bf7f82cb8fe27c, type: 3}
       propertyPath: m_text
       value: Salir
+      objectReference: {fileID: 0}
+    - target: {fileID: 563568581237588204, guid: 074159040d791687b9bf7f82cb8fe27c, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
+    - target: {fileID: 563568581237588204, guid: 074159040d791687b9bf7f82cb8fe27c, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8081519350549753524, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
+    - target: {fileID: 563568581237588204, guid: 074159040d791687b9bf7f82cb8fe27c, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 959806486022867271, guid: 074159040d791687b9bf7f82cb8fe27c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
