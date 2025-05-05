@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class fatherScript : MonoBehaviour
 {
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            GeneralManager.Instance.pause = !GeneralManager.Instance.pause;
+            if (GeneralManager.Instance.pause) {
+                DisableSons();
+            } else {
+                EnableSons();
+            }
+        }
+    }
+
     public void DisableMe()
     {
         gameObject.SetActive(false);
@@ -14,14 +26,14 @@ public class fatherScript : MonoBehaviour
     }
     public void DisableSons()
     {
-        foreach (var child in GetComponentsInChildren<usableObject>())
+        foreach (var child in GetComponentsInChildren<usableObject>(true))
         {
             child.DisableMe();
         }
     }
     public void EnableSons()
     {
-        foreach (var child in GetComponentsInChildren<usableObject>())
+        foreach (var child in GetComponentsInChildren<usableObject>(true))
         {
             child.EnableMe();
         }
