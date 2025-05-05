@@ -35,7 +35,17 @@ public class GeneralManager : Singleton<GeneralManager>
     //~ SETUP ~//
     public override void Awake()
     {
+        base.Awake();
         audioManager = GetComponent<AudioManager>();
+    }
+
+    void Update()
+    {
+        //TODO: Cambiar esto a script de escena principal y configurarlo para que
+        //      los elementos de fondo sean no interactuables.
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            GeneralManager.Instance.pause = !GeneralManager.Instance.pause;
+        }
     }
 
     //~ GESTIÓN ESCENA ~//
