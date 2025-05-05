@@ -10,6 +10,24 @@ public class GeneralManager : Singleton<GeneralManager>
     
     public AudioManager audioManager;
 
+    [SerializeField] GameObject optionsPanel;
+    private bool paused = false;
+    public bool pause {
+        get {
+            return paused;
+        }
+        set {
+            paused = value;
+            if (paused) {
+                Time.timeScale = 0;
+                optionsPanel.SetActive(true);
+            } else {
+                Time.timeScale = 1;
+                optionsPanel.SetActive(false);
+            }
+        }
+    }
+
 
     const int MAIN_MENU_SCENE_INDEX = 6;
     const int MAIN_GAME_SCENE_INDEX = 0;   //TODO: Cambiar a índice de escena principal en build.
