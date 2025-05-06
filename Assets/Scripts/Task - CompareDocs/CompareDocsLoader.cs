@@ -144,10 +144,11 @@ public class CompareDocsLoader : MonoBehaviour
                 regularLine = Instantiate(regularLinePrefab, contentObj.transform);
             } else {
                 regularLine = Instantiate(pcRegularLinePrefab, contentObj.transform);
+                line.text = "<b>" + line.text + "</b>";
             }
 
             TMP_Text text = regularLine.GetComponent<TMP_Text>();
-            text.text = "<b>" + line.text + "</b> " + ((RegularLineData) line).selectedSecondaryText;
+            text.text = line.text + " " + ((RegularLineData) line).selectedSecondaryText;
         }
     }
 
