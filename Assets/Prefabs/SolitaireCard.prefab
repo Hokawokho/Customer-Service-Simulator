@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9115295117443143562}
   - component: {fileID: 8372862568050630463}
   - component: {fileID: 460347608537804491}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SolitaireCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7338695338654151409}
   - component: {fileID: 2304428621041548201}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -412,8 +412,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Daniel Banegas Reyes
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
-  m_sharedMaterial: {fileID: 8081519350549753524, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f862c03e20ff4604988f28694c2cd83b, type: 2}
+  m_sharedMaterial: {fileID: -3494311776465021636, guid: f862c03e20ff4604988f28694c2cd83b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -546,8 +546,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Cr\xE9ditos"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ef13864c3533625cc94ec86cf8aa6d36, type: 2}
-  m_sharedMaterial: {fileID: 3945121135230784275, guid: ef13864c3533625cc94ec86cf8aa6d36, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a2d9e7221b8008f49930aeabe87bc3f9, type: 2}
+  m_sharedMaterial: {fileID: 8568103287009874065, guid: a2d9e7221b8008f49930aeabe87bc3f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1047,8 +1047,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Jordi Peir\xF3 Puig"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
-  m_sharedMaterial: {fileID: 8081519350549753524, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f862c03e20ff4604988f28694c2cd83b, type: 2}
+  m_sharedMaterial: {fileID: -3494311776465021636, guid: f862c03e20ff4604988f28694c2cd83b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1387,11 +1387,11 @@ PrefabInstance:
     - target: {fileID: 563568581237588204, guid: 074159040d791687b9bf7f82cb8fe27c, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
+      objectReference: {fileID: 11400000, guid: f862c03e20ff4604988f28694c2cd83b, type: 2}
     - target: {fileID: 563568581237588204, guid: 074159040d791687b9bf7f82cb8fe27c, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 8081519350549753524, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
+      objectReference: {fileID: -3494311776465021636, guid: f862c03e20ff4604988f28694c2cd83b, type: 2}
     - target: {fileID: 563568581237588204, guid: 074159040d791687b9bf7f82cb8fe27c, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
@@ -1577,8 +1577,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Lucas Gallego Catal\xE1n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
-  m_sharedMaterial: {fileID: 8081519350549753524, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f862c03e20ff4604988f28694c2cd83b, type: 2}
+  m_sharedMaterial: {fileID: -3494311776465021636, guid: f862c03e20ff4604988f28694c2cd83b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1813,11 +1813,11 @@ PrefabInstance:
     - target: {fileID: 563568581237588204, guid: 074159040d791687b9bf7f82cb8fe27c, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
+      objectReference: {fileID: 11400000, guid: f862c03e20ff4604988f28694c2cd83b, type: 2}
     - target: {fileID: 563568581237588204, guid: 074159040d791687b9bf7f82cb8fe27c, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 8081519350549753524, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
+      objectReference: {fileID: -3494311776465021636, guid: f862c03e20ff4604988f28694c2cd83b, type: 2}
     - target: {fileID: 563568581237588204, guid: 074159040d791687b9bf7f82cb8fe27c, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
@@ -1959,11 +1959,11 @@ PrefabInstance:
     - target: {fileID: 563568581237588204, guid: 074159040d791687b9bf7f82cb8fe27c, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
+      objectReference: {fileID: 11400000, guid: f862c03e20ff4604988f28694c2cd83b, type: 2}
     - target: {fileID: 563568581237588204, guid: 074159040d791687b9bf7f82cb8fe27c, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 8081519350549753524, guid: fbf09703aa5414e199dbe688d98602ac, type: 2}
+      objectReference: {fileID: -3494311776465021636, guid: f862c03e20ff4604988f28694c2cd83b, type: 2}
     - target: {fileID: 563568581237588204, guid: 074159040d791687b9bf7f82cb8fe27c, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
