@@ -6,9 +6,9 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
-// WIP (quizás rehacer con un approach distinto)
 public class CompareDocsLoader : MonoBehaviour
 {
 
@@ -20,6 +20,8 @@ public class CompareDocsLoader : MonoBehaviour
     [SerializeField] private GameObject inputLinePrefab;
     [SerializeField] private GameObject regularLinePrefab;
     [SerializeField] private GameObject docContents;
+    [SerializeField] private GameObject pcRegularLinePrefab;
+    [SerializeField] private GameObject pcContents;
 
     private CompareDocsManager manager;
 
@@ -39,72 +41,120 @@ public class CompareDocsLoader : MonoBehaviour
     private void LoadLines() {
         List<string> inputLineFiles = Directory.GetFiles(inputLinesPath, "*.json").ToList();
         List<string> regularLineFiles = Directory.GetFiles(regularLinesPath, "*json").ToList();
-        Utilities.Shuffle(inputLineFiles);
-        Utilities.Shuffle(regularLineFiles);
-
-        List<LineData> lines = new List<LineData>();
-
-
         if (inputLineFiles.Count == 0 || regularLineFiles.Count == 0) {
-            Debug.LogError("No se encontraron archivos json en " + inputLineFiles
+            Debug.LogError("No se encontraron archivos json en " + inputLinesPath
                 + "o " + regularLinesPath);
             return;
         }
+        Utilities.Shuffle(inputLineFiles);
+        Utilities.Shuffle(regularLineFiles);
 
+        List<LineData> inputLines = new List<LineData>();
+        List<LineData> regularLines = new List<LineData>();
         for (int i = 0; i < maxInputLines && i < inputLineFiles.Count; i++) {
             string file = inputLineFiles[i];
             string json = File.ReadAllText(file);
             InputLineData inputLine = JsonUtility.FromJson<InputLineData>(json);
 
+            // Elegir un resultado esperado aleatorio.
             int r = Random.Range(0, inputLine.possibleResText.Count);
             inputLine.selectedResText = inputLine.possibleResText[r];
 
-            lines.Add(inputLine);
+            inputLines.Add(inputLine);
         }
-        for (int i = 0; i < maxRegularLines && i < regularLineFiles.Count; i++) {
-            string selectedFile = regularLineFiles[i];
-            string json = File.ReadAllText(selectedFile);
+        for (int i = 0; i < regularLineFiles.Count; i++) {
+            string file = regularLineFiles[i];
+            string json = File.ReadAllText(file);
             RegularLineData regularLine = JsonUtility.FromJson<RegularLineData>(json);
-            
-            // Revisar si ya hay un inputline con el mismo texto.
-            if (IsExistingInputLine(regularLine, lines)) {
-                continue;
-            }
-            
+
+            // Elegir un resultado esperado aleatorio.
             int r = Random.Range(0, regularLine.possibleSecondaryText.Count);
             regularLine.selectedSecondaryText = regularLine.possibleSecondaryText[r];
 
+            regularLines.Add(regularLine);
+        }
+
+        LoadLinesInDoc(inputLines, regularLines);
+        LoadLinesInPc(inputLines, regularLines);
+    }
+
+    private void LoadLinesInDoc(List<LineData> inputLines, List<LineData> regularLines) {
+        List<LineData> lines = new List<LineData>(inputLines);
+        
+        int regularLineAmount = 0;
+        for (int i = 0; regularLineAmount < maxRegularLines && i < regularLines.Count; i++) {
+            RegularLineData regularLine = (RegularLineData)regularLines[i];
+            
+            // Revisar si ya hay una linea con el mismo texto.
+            if (IsExistingLine(regularLine, lines)) {
+                continue;
+            }
+            
+            lines.Add(regularLine);
+            regularLineAmount++;
+        }
+
+        Utilities.Shuffle(lines);
+
+        for (int i = 0; i < lines.Count; i++) {
+            ApplyLine(lines[i], docContents);
+        }
+
+        docContents.GetComponent<RectTransform>().ForceUpdateRectTransforms();
+    }
+
+    private void LoadLinesInPc(List<LineData> inputLines, List<LineData> regularLines) {
+        List<LineData> lines = new List<LineData>(inputLines);
+
+        for (int i = 0; i < regularLines.Count; i++) {
+            RegularLineData regularLine = (RegularLineData)regularLines[i];
+            
+            // Revisar si ya hay una linea con el mismo texto.
+            if (IsExistingLine(regularLine, lines)) {
+                continue;
+            }
+            
             lines.Add(regularLine);
         }
 
         Utilities.Shuffle(lines);
 
         for (int i = 0; i < lines.Count; i++) {
-            ApplyLine(lines[i]);
+            ApplyLine(lines[i], pcContents);
         }
-
-        docContents.GetComponent<RectTransform>().ForceUpdateRectTransforms();
     }
 
-    private void ApplyLine(LineData line) {
+    private void ApplyLine(LineData line, GameObject contentObj) {
         if (line is InputLineData) {
-            GameObject inputLine = Instantiate(inputLinePrefab, docContents.transform);
-            TMP_Text text = inputLine.transform.GetChild(0).GetComponent<TMP_Text>();
-            text.text = line.text;
+            if (contentObj.name.Equals("DocContent")) {
+                GameObject inputLine = Instantiate(inputLinePrefab, contentObj.transform);
+                TMP_Text text = inputLine.transform.GetChild(0).GetComponent<TMP_Text>();
+                text.text = line.text;
 
-            //TODO:
-            // - Componente InputLineData que contenga en res esperado.
+                //TODO:
+                // - Componente InputLine que contenga en res esperado.
+            } else {
+                GameObject inputLine = Instantiate(pcRegularLinePrefab, contentObj.transform);
+                TMP_Text text = inputLine.transform.GetComponent<TMP_Text>();
+                text.text = "<b>" + line.text + "</b> " + ((InputLineData) line).selectedResText;
+            }
         } else {
-            GameObject regularLine = Instantiate(regularLinePrefab, docContents.transform);
+            GameObject regularLine;
+            if (contentObj.name.Equals("DocContent")) {
+                regularLine = Instantiate(regularLinePrefab, contentObj.transform);
+            } else {
+                regularLine = Instantiate(pcRegularLinePrefab, contentObj.transform);
+            }
+
             TMP_Text text = regularLine.GetComponent<TMP_Text>();
-            text.text = line.text + " " + ((RegularLineData) line).selectedSecondaryText;
+            text.text = "<b>" + line.text + "</b> " + ((RegularLineData) line).selectedSecondaryText;
         }
     }
 
     //~ UTILITIES ~//
-    private bool IsExistingInputLine(LineData line, List<LineData> lines) {
+    private bool IsExistingLine(LineData line, List<LineData> lines) {
         foreach (LineData l in lines) {
-            if (l is  InputLineData && l.text == line.text) {
+            if (l.text == line.text) {
                 return true;
             } else {
                 continue;

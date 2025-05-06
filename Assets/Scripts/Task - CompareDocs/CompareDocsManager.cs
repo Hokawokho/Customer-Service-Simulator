@@ -6,6 +6,7 @@ using UnityEngine;
 public class CompareDocsManager : MonoBehaviour
 {
     private List<GameObject> allDocLines;
+    private List<GameObject> allPcLines;
     private List<GameObject> inputDocLines;
     private List<GameObject> regularDocLines;
     private List<GameObject> resPcLines;
@@ -22,7 +23,7 @@ public class CompareDocsManager : MonoBehaviour
         allDocLines.Add(line);
     }
 
-    public void addRegulatDocLines(GameObject line) {
+    public void addRegularDocLines(GameObject line) {
         // Añadir lineas normales de doc.
 
         regularDocLines.Add(line);
@@ -33,6 +34,5 @@ public class CompareDocsManager : MonoBehaviour
         // Añadir lineas normales de pc.
 
         regularPcLines.Add(line);
-        allDocLines.Add(line);
     }
 }
