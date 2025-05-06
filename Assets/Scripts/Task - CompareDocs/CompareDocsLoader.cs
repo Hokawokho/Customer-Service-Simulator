@@ -34,6 +34,7 @@ public class CompareDocsLoader : MonoBehaviour
         regularLinesPath = Application.dataPath + "/Data/CompareDoc/RegularLine";
 
         manager = GetComponent<CompareDocsManager>();
+        manager.numInputLines = maxInputLines;
 
         LoadLines();
     }
@@ -127,27 +128,29 @@ public class CompareDocsLoader : MonoBehaviour
     private void ApplyLine(LineData line, GameObject contentObj) {
         if (line is InputLineData) {
             if (contentObj.name.Equals("DocContent")) {
-                GameObject inputLine = Instantiate(inputLinePrefab, contentObj.transform);
-                TMP_Text text = inputLine.transform.GetChild(0).GetComponent<TMP_Text>();
+                GameObject inputLineObj = Instantiate(inputLinePrefab, contentObj.transform);
+                TMP_Text text = inputLineObj.transform.GetChild(0).GetComponent<TMP_Text>();
                 text.text = line.text;
-
+                
                 //TODO:
                 // - Componente InputLine que contenga en res esperado.
+                InputLine inputLine = inputLineObj.GetComponent<InputLine>();
+                inputLine.SetLine(((InputLineData) line).selectedResText, manager);
             } else {
-                GameObject inputLine = Instantiate(pcRegularLinePrefab, contentObj.transform);
-                TMP_Text text = inputLine.transform.GetComponent<TMP_Text>();
+                GameObject inputLineObj = Instantiate(pcRegularLinePrefab, contentObj.transform);
+                TMP_Text text = inputLineObj.transform.GetComponent<TMP_Text>();
                 text.text = "<b>" + line.text + "</b> " + ((InputLineData) line).selectedResText;
             }
         } else {
-            GameObject regularLine;
+            GameObject regularLineObj;
             if (contentObj.name.Equals("DocContent")) {
-                regularLine = Instantiate(regularLinePrefab, contentObj.transform);
+                regularLineObj = Instantiate(regularLinePrefab, contentObj.transform);
             } else {
-                regularLine = Instantiate(pcRegularLinePrefab, contentObj.transform);
+                regularLineObj = Instantiate(pcRegularLinePrefab, contentObj.transform);
                 line.text = "<b>" + line.text + "</b>";
             }
 
-            TMP_Text text = regularLine.GetComponent<TMP_Text>();
+            TMP_Text text = regularLineObj.GetComponent<TMP_Text>();
             text.text = line.text + " " + ((RegularLineData) line).selectedSecondaryText;
         }
     }

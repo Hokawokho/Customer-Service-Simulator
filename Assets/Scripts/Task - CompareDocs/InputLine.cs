@@ -11,8 +11,16 @@ public class InputLine : MonoBehaviour
     private string resText;
     private CompareDocsManager manager;
 
-    public void Setline(string resText, CompareDocsManager docManager) {
+    public void SetLine(string resText, CompareDocsManager docManager) {
         this.resText = resText;
         manager = docManager;
     }
+
+    public void OnValueChanged() {
+        if (textField.text.Equals(resText)) {
+            manager.LineCompleted(this);
+        } else {
+            manager.LineUnCompleted(this);
+        }
+    }   
 }
