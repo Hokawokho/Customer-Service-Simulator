@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Escenas del juego/MainMenu.unity
     guid: f540d5c2843385163b0ede7f5df63791
+  - enabled: 1
+    path: Assets/Scenes/Escenas del juego/EscenaJuego bola.unity
+    guid: e9899083885262e4e9dbe44c1cbc7dcd
   m_configObjects: {}

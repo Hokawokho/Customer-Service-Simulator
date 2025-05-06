@@ -52,6 +52,12 @@ public class MiniGameLoader : MonoBehaviour
             LoadMinigame(2);
         }
 
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            LoadMinigame(3);
+        }
+
+
 
         else if (Input.GetKeyDown(KeyCode.X))
         {
