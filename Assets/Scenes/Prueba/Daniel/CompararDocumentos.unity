@@ -470,6 +470,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 513188606}
+  - component: {fileID: 513188607}
   - component: {fileID: 513188605}
   m_Layer: 0
   m_Name: CompareDocsManager
@@ -510,6 +511,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &513188607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513188604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 377e2a3b473cd274ea8832435f7744b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputLinePrefab: {fileID: 1180970526414472017, guid: 19da346b1c4cec7419b1153f5a968f37, type: 3}
+  regularLinePrefab: {fileID: 5535315348690051733, guid: 0d9441e8d9cca544480457ac28773229, type: 3}
 --- !u!1 &1786709309
 GameObject:
   m_ObjectHideFlags: 0

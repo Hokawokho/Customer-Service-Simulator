@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -20,6 +21,8 @@ public class CompareDocsLoader : MonoBehaviour
     [SerializeField] private GameObject regularLinePrefab;
     [SerializeField] private GameObject docContents;
 
+    private CompareDocsManager manager;
+
     void Start()
     {
         // TODO: Cambiar a Application.persistentDataPath + "/Data/CompareDoc"
@@ -28,12 +31,16 @@ public class CompareDocsLoader : MonoBehaviour
         inputLinesPath = Application.dataPath + "/Data/CompareDoc/InputLine";
         regularLinesPath = Application.dataPath + "/Data/CompareDoc/RegularLine";
 
+        manager = GetComponent<CompareDocsManager>();
+
         LoadLines();
     }
 
     private void LoadLines() {
         List<string> inputLineFiles = Directory.GetFiles(inputLinesPath, "*.json").ToList();
         List<string> regularLineFiles = Directory.GetFiles(regularLinesPath, "*json").ToList();
+        Utilities.Shuffle(inputLineFiles);
+        Utilities.Shuffle(regularLineFiles);
 
         List<LineData> lines = new List<LineData>();
 
@@ -44,17 +51,28 @@ public class CompareDocsLoader : MonoBehaviour
             return;
         }
 
-        for (int i = 0; i < maxInputLines; i++) {
+        for (int i = 0; i < maxInputLines && i < inputLineFiles.Count; i++) {
             string file = inputLineFiles[i];
             string json = File.ReadAllText(file);
-            LineData inputLine = JsonUtility.FromJson<LineData>(json);
+            InputLineData inputLine = JsonUtility.FromJson<InputLineData>(json);
+
+            int r = Random.Range(0, inputLine.possibleResText.Count);
+            inputLine.selectedResText = inputLine.possibleResText[r];
 
             lines.Add(inputLine);
         }
-        for (int i = 0; i < maxRegularLines; i++) {
+        for (int i = 0; i < maxRegularLines && i < regularLineFiles.Count; i++) {
             string selectedFile = regularLineFiles[i];
             string json = File.ReadAllText(selectedFile);
-            LineData regularLine = JsonUtility.FromJson<LineData>(json);
+            RegularLineData regularLine = JsonUtility.FromJson<RegularLineData>(json);
+            
+            // Revisar si ya hay un inputline con el mismo texto.
+            if (IsExistingInputLine(regularLine, lines)) {
+                continue;
+            }
+            
+            int r = Random.Range(0, regularLine.possibleSecondaryText.Count);
+            regularLine.selectedSecondaryText = regularLine.possibleSecondaryText[r];
 
             lines.Add(regularLine);
         }
@@ -69,24 +87,57 @@ public class CompareDocsLoader : MonoBehaviour
     }
 
     private void ApplyLine(LineData line) {
-        if (line.isInputLine) {
+        if (line is InputLineData) {
             GameObject inputLine = Instantiate(inputLinePrefab, docContents.transform);
             TMP_Text text = inputLine.transform.GetChild(0).GetComponent<TMP_Text>();
             text.text = line.text;
 
-            //TODO
+            //TODO:
+            // - Componente InputLineData que contenga en res esperado.
         } else {
             GameObject regularLine = Instantiate(regularLinePrefab, docContents.transform);
             TMP_Text text = regularLine.GetComponent<TMP_Text>();
-            text.text = line.text;
+            text.text = line.text + " " + ((RegularLineData) line).selectedSecondaryText;
         }
+    }
+
+    //~ UTILITIES ~//
+    private bool IsExistingInputLine(LineData line, List<LineData> lines) {
+        foreach (LineData l in lines) {
+            if (l is  InputLineData && l.text == line.text) {
+                return true;
+            } else {
+                continue;
+            }
+        }
+
+        return false;
     }
 
 }
 
+// Cada linea tiene un texto primario.
 [Serializable]
 public class LineData {
     public string text;
-    public string desiredRes;
-    public bool isInputLine;
+}
+
+// Linea de input tiene un resultado esperado en la caja en la que se escribe.
+// - possibleResText es una de las posibilidades de resultado.
+// - selectedResText está vacio en los Json, se escoge de entre las opciones
+//      en possibleResText durante la carga.
+[Serializable]
+public class InputLineData : LineData {
+    public List<string> possibleResText;
+    public string selectedResText;
+}
+
+// Linea de input tiene un texto secundario.
+// - possibleSecondaryText es una de las posibilidades de texto secundario.
+// - selectedSecondaryText está vacio en los Json, se escoge de entre las opciones
+//      en possibleSecondaryText durante la carga.
+[Serializable]
+public class RegularLineData : LineData {
+    public List<string> possibleSecondaryText;
+    public string selectedSecondaryText;
 }

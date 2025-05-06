@@ -1,5 +1,13 @@
 {
-    "text": "Apellidos",
-    "desiredRes": "",
-    "isInputLine": true
+    "text": "Apellidos:",
+    "possibleResText": [
+        "Rodríguez García",
+        "Banegas Reyes",
+        "López Moreno",
+        "Peiró Puig",
+        "Torres Fernández",
+        "Gallego Catalán",
+        "Vidal Puente",
+        "Navarro Jiménez"
+    ]
 }

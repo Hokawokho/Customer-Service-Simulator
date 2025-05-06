@@ -1,4 +1,13 @@
 {
-    "text": "DNI: 74027501",
-    "isInputLine": false
+    "text": "Nombre:",
+    "possibleSecondaryText": [
+        "Ana",
+        "Carlos",
+        "Daniela",
+        "Eduardo",
+        "Fernanda",
+        "Gabriel",
+        "Hannah",
+        "Ivan"
+    ]
 }

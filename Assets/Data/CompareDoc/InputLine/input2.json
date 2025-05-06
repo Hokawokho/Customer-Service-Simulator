@@ -1,5 +1,13 @@
 {
-    "text": "Nombre",
-    "desiredRes": "",
-    "isInputLine": true
+    "text": "Nombre:",
+    "possibleResText": [
+        "Juan",
+        "María",
+        "Pedro",
+        "Laura",
+        "Carlos",
+        "Ana",
+        "Diego",
+        "Elena"
+    ]
 }

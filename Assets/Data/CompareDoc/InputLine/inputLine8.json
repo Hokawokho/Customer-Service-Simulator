@@ -1,0 +1,10 @@
+{
+    "text": "Estado Civil:",
+    "possibleResText": [
+        "Soltero/a",
+        "Casado/a",
+        "Separado/a",
+        "Divorciado/a",
+        "Viudo/a"
+    ]
+}
