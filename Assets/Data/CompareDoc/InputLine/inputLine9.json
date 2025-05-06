@@ -1,0 +1,10 @@
+{
+    "text": "Situación laboral:",
+    "possibleResText": [
+        "Tiempo completo",
+        "Independiente",
+        "Desempleado",
+        "Subempleado",
+        "Emprendedor"
+    ]
+}
