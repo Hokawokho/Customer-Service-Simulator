@@ -21,7 +21,7 @@ public class fatherScript : MonoBehaviour
     }
     public void EnableSons()
     {
-        foreach (var child in GetComponentsInChildren<usableObject>())
+        foreach (var child in GetComponentsInChildren<usableObject>(includeInactive: true))
         {
             child.EnableMe();
         }
@@ -35,5 +35,20 @@ public class fatherScript : MonoBehaviour
     {
         EnableMe();
         EnableSons();
+    }
+
+    public void freezeSons()
+    {
+        foreach (var child in GetComponentsInChildren<usableObject>())
+        {
+            child.freezeMe();
+        }
+    }
+    public void unfreezeSons()
+    {
+        foreach (var child in GetComponentsInChildren<usableObject>())
+        {
+            child.unfreezeMe();
+        }
     }
 }

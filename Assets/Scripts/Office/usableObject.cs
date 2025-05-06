@@ -100,6 +100,7 @@ public class usableObject : MonoBehaviour
         if(col != null){
             col.enabled = true;
         }
+        isBlinking = true;
     }
 
     // Update is called once per frame
@@ -121,5 +122,18 @@ public class usableObject : MonoBehaviour
     public virtual void EnableMe()
     {
         gameObject.SetActive(true);
+    }
+
+    public virtual void freezeMe()
+    {
+        if(col != null){
+            col.enabled = false;
+        }
+    }
+    public virtual void unfreezeMe()
+    {
+        if(col != null){
+            col.enabled = true;
+        }
     }
 }
