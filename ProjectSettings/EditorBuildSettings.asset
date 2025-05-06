@@ -6,9 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Escenas del juego/PruebaMuestraMinigame.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Escenas del juego/Minijuego_Solitario.unity
+    guid: a44f41e443aa237979a316f98c7b7396
+  - enabled: 1
+    path: Assets/Scenes/Escenas del juego/Matamoscas.unity
+    guid: 9b5fa668db7f31931a00754e7c63de74
+  - enabled: 1
+    path: Assets/Scenes/Escenas del juego/PlataformasMinigame.unity
+    guid: e22ded8fde3e137428ab48b5228f2c66
+  - enabled: 1
+    path: Assets/Scenes/Escenas del juego/Matamoscas2.0.unity
+    guid: b8684b08af2f8a9429a3c45bc6d32d1a
+  - enabled: 1
     path: Assets/Scenes/Escenas del juego/SplashCreen.unity
-    guid: 3255a08e57115c84b967c59d0ccd0abf
+    guid: 238163fae41026654995a1cb50db5aec
   - enabled: 1
     path: Assets/Scenes/Escenas del juego/MainMenu.unity
-    guid: e53d88a1dd6d34e418b628093208bd2a
+    guid: f540d5c2843385163b0ede7f5df63791
   m_configObjects: {}

@@ -11,8 +11,8 @@ public class GeneralManager : Singleton<GeneralManager>
     public AudioManager audioManager;
 
 
-    const int MAIN_MENU_SCENE_INDEX = 1;
-    const int MAIN_GAME_SCENE_INDEX = -1;   //TODO: Cambiar a índice de escena principal en build.
+    const int MAIN_MENU_SCENE_INDEX = 6;
+    const int MAIN_GAME_SCENE_INDEX = 0;   //TODO: Cambiar a índice de escena principal en build.
 
     //~ SETUP ~//
     public override void Awake()

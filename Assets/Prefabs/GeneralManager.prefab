@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2616764400909356502}
-  - component: {fileID: 6572396833031152943}
-  - component: {fileID: 6603268014930610777}
+  - component: {fileID: 3917603311742840375}
+  - component: {fileID: 5539998597624765414}
   m_Layer: 0
   m_Name: GeneralManager
   m_TagString: Untagged
@@ -35,7 +35,7 @@ Transform:
   - {fileID: 2712101895564860087}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6572396833031152943
+--- !u!114 &3917603311742840375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,12 +44,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4563480789244363467}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb10749745dfab745a6d7a13527fba70, type: 3}
+  m_Script: {fileID: 11500000, guid: 359b85cf4d5dba91ba7800204768aadf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   interSceneWaitTime: 3
-  audioManager: {fileID: 0}
---- !u!114 &6603268014930610777
+  audioManager: {fileID: 5539998597624765414}
+--- !u!114 &5539998597624765414
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4563480789244363467}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28af337cbebc32a49a4bb9f21422621a, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c148c9e96d2d7c0ba9bb76cb0c05375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   musicSource: {fileID: 5941673823352836917}
