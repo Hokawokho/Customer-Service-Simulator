@@ -527,6 +527,7 @@ MonoBehaviour:
   minigameScenes:
   - {fileID: 102900000, guid: b8684b08af2f8a9429a3c45bc6d32d1a, type: 3}
   - {fileID: 102900000, guid: e22ded8fde3e137428ab48b5228f2c66, type: 3}
+  - {fileID: 102900000, guid: e9899083885262e4e9dbe44c1cbc7dcd, type: 3}
 --- !u!4 &1831285644
 Transform:
   m_ObjectHideFlags: 0
