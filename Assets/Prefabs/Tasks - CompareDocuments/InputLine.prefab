@@ -307,7 +307,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Enter text...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 015666b062344b147a2249d8fa002f68, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f862c03e20ff4604988f28694c2cd83b, type: 2}
   m_sharedMaterial: {fileID: 706649573893688320, guid: 015666b062344b147a2249d8fa002f68, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -371,7 +371,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &3690163732948237655
@@ -461,8 +461,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 015666b062344b147a2249d8fa002f68, type: 2}
-  m_sharedMaterial: {fileID: 706649573893688320, guid: 015666b062344b147a2249d8fa002f68, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f862c03e20ff4604988f28694c2cd83b, type: 2}
+  m_sharedMaterial: {fileID: -3494311776465021636, guid: f862c03e20ff4604988f28694c2cd83b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -596,8 +596,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Lorem ipsum: '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 015666b062344b147a2249d8fa002f68, type: 2}
-  m_sharedMaterial: {fileID: 706649573893688320, guid: 015666b062344b147a2249d8fa002f68, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f862c03e20ff4604988f28694c2cd83b, type: 2}
+  m_sharedMaterial: {fileID: -3494311776465021636, guid: f862c03e20ff4604988f28694c2cd83b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

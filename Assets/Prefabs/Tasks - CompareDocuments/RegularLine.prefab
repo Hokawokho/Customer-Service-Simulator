@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Lorem ipsum: Lorem ipsum'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 015666b062344b147a2249d8fa002f68, type: 2}
-  m_sharedMaterial: {fileID: 706649573893688320, guid: 015666b062344b147a2249d8fa002f68, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f862c03e20ff4604988f28694c2cd83b, type: 2}
+  m_sharedMaterial: {fileID: -3494311776465021636, guid: f862c03e20ff4604988f28694c2cd83b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

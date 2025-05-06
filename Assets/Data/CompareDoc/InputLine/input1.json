@@ -1,4 +1,6 @@
 {
     "text": "DNI",
-    "desiredRes": ""
+    "desiredRes": "",
+    "isInputLine": true
+
 }
