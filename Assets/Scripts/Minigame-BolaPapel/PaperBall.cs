@@ -6,25 +6,47 @@ public class PaperBall : MonoBehaviour
 {
 public Vector2 force;
 
-GameObject ballPaper;
+//private GameObject ballPaper;
 
-Rigidbody2D rigidbody2D;
+private Rigidbody2D rb;
 
-static int counter = 0;
+private SpriteRenderer sprite;
+
+private bool hasLaunched = false;
+
     void Start() {
 
-        ballPaper= FindObjectOfType<GameObject>();
-        rigidbody2D= FindObjectOfType<Rigidbody2D>();
+        //ballPaper= FindObjectOfType<GameObject>();
+        rb= GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
+
+        sprite.enabled = false;
+        rb.simulated = false;
 
     }
     void Update() {
 
-        if(Input.GetButtonDown("Jump")){
+        if(Input.GetButtonDown("Jump") && !hasLaunched){
         //rigidbody2D.velocity = speed;
 
-        rigidbody2D.AddForce(force, ForceMode2D.Impulse);
+        hasLaunched = true;
+
+        transform.localPosition = new Vector3(-6.25f,1.16f,0);
+
+
+        sprite.enabled = true;
+        rb.simulated = true;
+
+        rb.velocity = Vector2.zero;
+
+        rb.AddForce(force, ForceMode2D.Impulse);
         
         
+        }
+
+        if(Input.GetKeyDown(KeyCode.R)){
+
+            hasLaunched = false;
         }
 
 
