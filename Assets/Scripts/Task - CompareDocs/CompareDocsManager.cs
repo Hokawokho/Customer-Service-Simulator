@@ -7,15 +7,8 @@ using UnityEditor;
 
 public class CompareDocsManager : MonoBehaviour
 {
-    /*
-    private List<GameObject> allDocLines;
-    private List<GameObject> allPcLines;
-    private List<GameObject> inputDocLines;
-    private List<GameObject> regularDocLines;
-    private List<GameObject> resPcLines;
-    private List<GameObject> regularPcLines;
-    */
     private List<InputLine> completedLines;
+    private bool taskCompleted;
 
     public int numInputLines {
         private get; set;
@@ -23,37 +16,26 @@ public class CompareDocsManager : MonoBehaviour
 
     [SerializeField] private GameObject inputLinePrefab;
     [SerializeField] private GameObject regularLinePrefab;
+    [Header("Parámetros de oficina")]
+    [SerializeField] private usableTransitionClick usableExitScript;
 
     void Start() {
         completedLines = new List<InputLine>();
+
+        // TEMPORAL. Llamar desde OfficeManager cada vez que se quiera (re)iniciar tarea.
+        NewTask();
     }
 
     void Update() {
-        if (completedLines.Count == numInputLines) TaskWon();
+        if (completedLines.Count == numInputLines && !taskCompleted) TaskWon();
+
+        /*
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            Clear();
+            NewTask();
+        }
+        */
     }
-
-    /*
-    public void addInputLine(GameObject line) {
-        // Añadir lineas de input y lineas de res del pc.
-
-        inputDocLines.Add(line);
-        resPcLines.Add(line);
-        allDocLines.Add(line);
-    }
-
-    public void addRegularDocLines(GameObject line) {
-        // Añadir lineas normales de doc.
-
-        regularDocLines.Add(line);
-        allDocLines.Add(line);
-    }
-
-    public void addRegularPcLines(GameObject line) {
-        // Añadir lineas normales de pc.
-
-        regularPcLines.Add(line);
-    }
-    */
 
     public void LineCompleted(InputLine line) {
         completedLines.Add(line);
@@ -63,14 +45,21 @@ public class CompareDocsManager : MonoBehaviour
         completedLines.Remove(line);
     }
 
+    // Usar en Office Manager.
+    public void NewTask() {
+        GetComponent<CompareDocsLoader>().LoadLines();
+    }
+    
+    // Usar en Office Manager
+    public void Clear() {
+        GetComponent<CompareDocsLoader>().Clear();
+        completedLines = new List<InputLine>();
+        taskCompleted = false;
+    }
+
     private void TaskWon() {
-        // TEMPORAL. En el futuro habrá un game manager que se ocupe de cerrar y/o
-        // cambiar escena, o de cerrar el juego.
-        Debug.Log("TASK COMPLETED!");
-        #if UNITY_EDITOR
-            EditorApplication.isPlaying = false;
-        #else
-            Application.Quit();
-        #endif
+        taskCompleted = true;
+        usableExitScript.Transition();
+        // ej: officeManager.TaskWon(this); // TODO
     }
 }

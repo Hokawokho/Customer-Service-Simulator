@@ -11,6 +11,10 @@ public class usableTransitionClick : usableObject
     protected override void OnMouseDown()
     {
         base.OnMouseDown();
+        Transition();
+    }
+
+    public void Transition() {
         var objScript = objectToInvoke.GetComponent<fatherScript>();
         if(objScript != null)
         {
