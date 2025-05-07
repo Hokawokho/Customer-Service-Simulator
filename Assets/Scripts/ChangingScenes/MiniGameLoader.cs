@@ -10,6 +10,10 @@ public class MiniGameLoader : MonoBehaviour
     private string[] minigameSceneNames;
     private string currentMinigameScene;
 
+    [SerializeField] private List<UnpausableObject> extraObjectsToPause;
+
+    private bool active = false;
+
     // Start is called before the first frame update
     // void Start()
     // {
@@ -82,6 +86,7 @@ public class MiniGameLoader : MonoBehaviour
                 currentMinigameScene = sceneName;
             }
         };
+        TogglePause();
     }
 
     public void UnloadCurrentMinigame()
@@ -98,7 +103,25 @@ public class MiniGameLoader : MonoBehaviour
         }
         SceneManager.UnloadSceneAsync(currentMinigameScene);
         currentMinigameScene = null;
+        TogglePause();
     }
 
     public bool IsMinigameActive => !string.IsNullOrEmpty(currentMinigameScene);
+
+    public void TogglePause() {
+        active = !active;
+
+        // Comprobar si hay items extra que desactivar
+        if (extraObjectsToPause != null) {
+            foreach (UnpausableObject unObj in extraObjectsToPause) {
+                GameObject obj = unObj.objectToPause;
+                // Si el objeto es fatherScript, usar su función específica.
+                fatherScript fScr = obj.GetComponent<fatherScript>();
+                if (fScr != null) {
+                    if (active) fScr.freezeSons();
+                    else fScr.unfreezeSons();
+                }
+            }
+        }
+    }
 }
