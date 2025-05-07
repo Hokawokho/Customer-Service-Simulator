@@ -65,7 +65,7 @@ public class MiniGameLoader : MonoBehaviour
         }
     }
 
-    void LoadMinigame(int index){
+    public void LoadMinigame(int index){
 
          string sceneName = minigameSceneNames[index];
 
@@ -84,11 +84,21 @@ public class MiniGameLoader : MonoBehaviour
         };
     }
 
-     void UnloadCurrentMinigame()
+    public void UnloadCurrentMinigame()
     {
         if (string.IsNullOrEmpty(currentMinigameScene)) return;
 
+
+
+
+         if (SceneManager.sceneCount <= 1)
+        {
+            Debug.LogWarning("No se puede descargar el minijuego porque es la única escena cargada.");
+            return;
+        }
         SceneManager.UnloadSceneAsync(currentMinigameScene);
         currentMinigameScene = null;
     }
+
+    public bool IsMinigameActive => !string.IsNullOrEmpty(currentMinigameScene);
 }
