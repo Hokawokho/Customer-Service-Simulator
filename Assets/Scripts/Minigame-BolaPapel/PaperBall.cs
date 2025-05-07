@@ -14,6 +14,17 @@ private SpriteRenderer sprite;
 
 private bool hasLaunched = false;
 
+private Vector2[] forceSteps = new Vector2[]
+{
+    new Vector2(4, 4),
+    new Vector2(5, 5),
+    new Vector2(6, 6),
+    new Vector2(5, 5),
+    new Vector2(4, 4)
+};
+
+private int currentForceIndex = 0;
+
     void Start() {
 
         //ballPaper= FindObjectOfType<GameObject>();
@@ -22,6 +33,8 @@ private bool hasLaunched = false;
 
         sprite.enabled = false;
         rb.simulated = false;
+
+         StartCoroutine(UpdateForceRoutine());
 
     }
     void Update() {
@@ -50,5 +63,15 @@ private bool hasLaunched = false;
         }
 
 
+    }
+
+    private IEnumerator UpdateForceRoutine()
+    {
+        while (true)
+        {
+            force = forceSteps[currentForceIndex];
+            currentForceIndex = (currentForceIndex + 1) % forceSteps.Length;
+            yield return new WaitForSeconds(0.2f); // ajusta esto si cada transición dura más/menos
+        }
     }
 }

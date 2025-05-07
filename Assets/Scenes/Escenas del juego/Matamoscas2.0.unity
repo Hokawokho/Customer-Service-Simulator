@@ -351,6 +351,7 @@ MonoBehaviour:
   rotationSpeed: 300
   nextRotationWaitTime: 0.7
   flyPrefab: {fileID: 6268277164873250445, guid: cf1f0ac13e31603b9a34bb3b30ba1890, type: 3}
+  _fliesRequired: 7
 --- !u!1001 &7881286167681007267
 PrefabInstance:
   m_ObjectHideFlags: 0

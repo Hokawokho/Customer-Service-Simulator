@@ -32,9 +32,13 @@ public class SolitaireManager : MonoBehaviour
     private Queue<Transform> movingCards;
     private List<Transform> snapPoints;
 
+    private MiniGameLoader miniGameLoader;
+
     //~ SETUP ~//
     void Awake()
     {
+
+        miniGameLoader = FindObjectOfType<MiniGameLoader>();
         // Comprobar que el array cardFaces está inicializado y completo.
         if (cardFaces == null) {
             Debug.LogError("Array cardFaces no inicializada. Ves al componente y añade "
@@ -94,7 +98,7 @@ public class SolitaireManager : MonoBehaviour
             == (goalFoundation.ToString() + "K"))
             && movingCards.Count == 0) {
             
-            MinigameWon();
+            miniGameLoader.UnloadCurrentMinigame();
         }
     }
 
