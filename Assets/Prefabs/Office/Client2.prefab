@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Client2
       objectReference: {fileID: 0}
+    - target: {fileID: 4976439916303726656, guid: fede3a45426abaa4d9a96d2cef4309e6, type: 3}
+      propertyPath: animEnd
+      value: 
+      objectReference: {fileID: 7400000, guid: a796aa9c1fcbcf64abcd894983a31870, type: 2}
+    - target: {fileID: 4976439916303726656, guid: fede3a45426abaa4d9a96d2cef4309e6, type: 3}
+      propertyPath: animSpawn
+      value: 
+      objectReference: {fileID: 7400000, guid: 2091c11e7b5880644bd5fe07bc194354, type: 2}
     - target: {fileID: 7839435936894840981, guid: fede3a45426abaa4d9a96d2cef4309e6, type: 3}
       propertyPath: m_Sprite
       value: 

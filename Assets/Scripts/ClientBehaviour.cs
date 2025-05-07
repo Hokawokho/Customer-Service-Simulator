@@ -1,0 +1,85 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ClientBehaviour : MonoBehaviour
+{
+    [Tooltip("Animacion a reproducir al spawnear")]
+    public AnimationClip animSpawn;
+    [Tooltip("Animacion a reproducir al finalizar")]
+    public AnimationClip animEnd;
+
+    private Animator animator;
+    // Start is called before the first frame update
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+        if (animator == null)
+        {
+            Debug.LogWarning("No Animator found on " + gameObject.name);
+        }
+        else
+        {
+            animator.Play(animSpawn.name);
+        }
+        
+    }
+
+    //Funcion a la que se llama al finalizar el acercamiento, para que el cliente genere una tarea
+    public void provideTask()
+    {
+        //Aqui se genera una tarea aleatoria para el cliente
+        int idx = Random.Range(0, 2);
+        switch (idx)
+        {
+            case 0:
+                //Generar tarea de imprimir
+                Debug.Log("Cliente " + gameObject.name + " ha generado una tarea de imprimir.");
+                break;
+            case 1:
+                //Generar tarea de comparar
+                Debug.Log("Cliente " + gameObject.name + " ha generado una tarea de comparar.");
+                break;
+            default:
+                //No hacer nada
+                Debug.Log("Cliente " + gameObject.name + " no ha generado ninguna tarea.");
+                break;
+        }
+                
+    }
+
+    //Funcion a llamar una vez se haya terminado la tarea
+    public void finishTask(int success)
+    {
+        //Se contabiliza el resultado de la tarea
+        if (success == 1)
+        {
+            Debug.Log("Cliente " + gameObject.name + " ha terminado la tarea con exito.");
+        }
+        else if (success == 0)
+        {
+            Debug.Log("Cliente " + gameObject.name + " ha terminado la tarea sin exito.");
+        }
+        else
+        {
+            Debug.Log("Cliente " + gameObject.name + " no ha terminado la tarea.");
+        }
+        
+        //Aqui se finaliza la tarea del cliente
+        if (animEnd != null && animator != null)
+        {
+            animator.Play(animEnd.name);
+        }
+        else
+        {
+            Debug.LogWarning("No Animation or Animator found on " + gameObject.name);
+        }
+    }
+
+    //Funcion a llamar al finalizar la animacion de "salida"
+    public void despawnClient()
+    {
+        //Aqui se destruye el cliente
+        Destroy(gameObject);
+    }
+}

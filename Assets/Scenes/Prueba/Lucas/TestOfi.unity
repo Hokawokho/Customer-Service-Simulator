@@ -372,19 +372,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1113172530618069502, guid: fede3a45426abaa4d9a96d2cef4309e6, type: 3}
       propertyPath: m_Name
-      value: client1
+      value: Client1
       objectReference: {fileID: 0}
     - target: {fileID: 8274547453146207651, guid: fede3a45426abaa4d9a96d2cef4309e6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.699
+      value: 5.72
       objectReference: {fileID: 0}
     - target: {fileID: 8274547453146207651, guid: fede3a45426abaa4d9a96d2cef4309e6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.97
+      value: 2.32
       objectReference: {fileID: 0}
     - target: {fileID: 8274547453146207651, guid: fede3a45426abaa4d9a96d2cef4309e6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.06407337
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8274547453146207651, guid: fede3a45426abaa4d9a96d2cef4309e6, type: 3}
       propertyPath: m_LocalRotation.w
