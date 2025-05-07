@@ -21,6 +21,9 @@ public class DistractionManager : MonoBehaviour
 
     private bool barResetTriggered = false;
 
+    private List<int> availableMinigameIndices = new List<int> { 0, 1, 2, 3, 4 };
+
+
     private void Start()
     {
         miniGameLoader = FindObjectOfType<MiniGameLoader>();
@@ -81,6 +84,21 @@ public class DistractionManager : MonoBehaviour
         }
     }
 
+    private int GetRandomAvailableMinigame()
+{
+    if (availableMinigameIndices.Count == 0)
+    {
+        availableMinigameIndices = new List<int> { 0, 1, 2, 3, 4 };
+        Debug.Log("Todos los minijuegos han sido jugados. Reiniciando la lista.");
+    }
+
+    int randomIndex = Random.Range(0, availableMinigameIndices.Count);
+    int minigameIndex = availableMinigameIndices[randomIndex];
+    availableMinigameIndices.RemoveAt(randomIndex); // Eliminar para evitar repetición
+
+    return minigameIndex;
+}
+
     private IEnumerator CheckProbabilityRoutine()
     {
         while (true)
@@ -92,8 +110,9 @@ public class DistractionManager : MonoBehaviour
 
             if (roll < currentProbability)
             {
-                miniGameLoader.LoadMinigame(0);;
-                // Corrutina se detendrá automáticamente en el siguiente Update
+                int selectedMinigame = GetRandomAvailableMinigame();
+                Debug.Log($"Lanzando minijuego aleatorio: {selectedMinigame}");
+                miniGameLoader.LoadMinigame(selectedMinigame);
             }
             else
             {

@@ -21,8 +21,10 @@ public class FlySpawner : MonoBehaviour
     public Fly flyPrefab;
 
     private float _spawnCircleRadius;
-    private int _fliesRequired;
+    public int _fliesRequired;
     private int _fliesDestroyed = 0;
+
+    private MiniGameLoader miniGameLoader;
 
     void Start()
     {
@@ -33,7 +35,9 @@ public class FlySpawner : MonoBehaviour
         Vector3 cornerPoint = new Vector3(camHalfWidth, camHalfHeight, 0f);
         _spawnCircleRadius = Vector3.Distance(Vector3.zero, cornerPoint);
 
-        _fliesRequired = amountOfSpawns * (amountOfSpawns + 1) / 2;
+        miniGameLoader = FindObjectOfType<MiniGameLoader>();
+
+        //_fliesRequired = amountOfSpawns * (amountOfSpawns + 1) / 2;
 
         // Empezar a spawnear moscas.
         StartCoroutine(IncreaseDifficulty());
@@ -57,11 +61,13 @@ public class FlySpawner : MonoBehaviour
     private void MinigameWon() {
         // TEMPORAL. En el futuro habrá un game manager que se ocupe de cerrar y/o
         // cambiar escena, o de cerrar el juego.
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #else
-            Application.Quit();
-        #endif
+        // #if UNITY_EDITOR
+        //     UnityEditor.EditorApplication.isPlaying = false;
+        // #else
+        //     Application.Quit();
+        // #endif
+
+        miniGameLoader.UnloadCurrentMinigame();
     }
 
     private IEnumerator IncreaseDifficulty() {
