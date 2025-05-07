@@ -30,8 +30,8 @@ public class PlayPauseManager : MonoBehaviour
                 // Si el objeto es fatherScript, usar su función específica.
                 fatherScript fScr = obj.GetComponent<fatherScript>();
                 if (fScr != null) {
-                    if (isGamePaused || !unObj.activeBeforePause) fScr.DisableAll();
-                    else if (unObj.activeBeforePause) fScr.EnableAll();
+                    if (isGamePaused || !unObj.activeBeforePause) fScr.freezeSons();
+                    else if (unObj.activeBeforePause) fScr.unfreezeSons();
                 } else {
                     if (isGamePaused) obj.SetActive(false);
                     else obj.SetActive(unObj.activeBeforePause);

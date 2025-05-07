@@ -65,6 +65,17 @@ public class StressBar : MonoBehaviour
                 isCharging = false;
                 ClientActive = false;
                 Debug.Log("Cargado");
+
+                ClientBehaviour clientBehaviour = FindObjectOfType<ClientBehaviour>();
+                if (clientBehaviour != null)
+                {
+                    clientBehaviour.finishTask(0);
+                }
+                else
+                {
+                    Debug.LogWarning("ClientBehaviour not found in the scene.");
+                }
+
                 if (miniGameLoader.IsMinigameActive && SceneManager.sceneCount > 1)
                 {   
                     Debug.Log($"Escenas cargadas: {SceneManager.sceneCount}. Activa: {SceneManager.GetActiveScene().name}");

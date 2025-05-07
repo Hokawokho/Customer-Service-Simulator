@@ -47,10 +47,12 @@ public class DistractionManager : MonoBehaviour
 
                 
                  //TODO: esto esta en Start, pero hay que llamarlo cuando sea el cliente correspondiente.
+                /*
                 if (stressBar != null)
                 {
                     stressBar.StartCharging();
                 }
+                */
 
                 Debug.Log("Minijuego detectado. Corrutina detenida.");
             }
@@ -66,10 +68,12 @@ public class DistractionManager : MonoBehaviour
 
 
                 //TODO: Más de lo mismo, esto se debe llamar desde el cliente que pide la faena
+                /*
                 if (stressBar != null)
                 {
                     stressBar.StartCharging(); // reiniciar barra visualmente y temporizador
                 }
+                */
 
 
 
@@ -122,7 +126,7 @@ public class DistractionManager : MonoBehaviour
         }
     }
 
-    private IEnumerator ResetStressBarAfterDelay(float delay)
+    public IEnumerator ResetStressBarAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
 

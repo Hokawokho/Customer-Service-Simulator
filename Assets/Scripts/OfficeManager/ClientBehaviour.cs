@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ClientBehaviour : MonoBehaviour
 {
@@ -8,6 +9,12 @@ public class ClientBehaviour : MonoBehaviour
     public AnimationClip animSpawn;
     [Tooltip("Animacion a reproducir al finalizar")]
     public AnimationClip animEnd;
+    [Tooltip("Animar texto a usar")]
+    public AnimationClip animTextP;
+    public AnimationClip animTextC;
+
+    [Tooltip("Campo de texto a usar")]
+    public TextMeshPro textField;
 
     private Animator animator;
     private ClientManager clientManager;
@@ -30,6 +37,17 @@ public class ClientBehaviour : MonoBehaviour
     //Funcion a la que se llama al finalizar el acercamiento, para que el cliente genere una tarea
     public void provideTask()
     {
+        //Aqui se inicia la barra de frustracion del cliente
+        StressBar stressBar = FindObjectOfType<StressBar>();
+        if (stressBar != null)
+        {
+            stressBar.StartCharging();
+        }
+        else
+        {
+            Debug.LogWarning("StressBar not found in the scene.");
+        }
+        
         //Aqui se genera una tarea aleatoria para el cliente
         int idx = Random.Range(0, 2);
         switch (idx)
@@ -38,6 +56,8 @@ public class ClientBehaviour : MonoBehaviour
                 //Generar tarea de imprimir
                 Debug.Log("Cliente " + gameObject.name + " ha generado una tarea de imprimir.");
                 CompareDocsManager comp = FindObjectOfType<CompareDocsManager>();
+
+                animator.Play(animTextP.name);
                 if (comp != null)
                 {
                     comp.NewTask();
@@ -51,6 +71,8 @@ public class ClientBehaviour : MonoBehaviour
                 //Generar tarea de comparar
                 Debug.Log("Cliente " + gameObject.name + " ha generado una tarea de comparar.");
                 PrintManager print = FindObjectOfType<PrintManager>();
+
+                animator.Play(animTextC.name);
                 if (print != null)
                 {
                     print.NewTask();
@@ -82,6 +104,16 @@ public class ClientBehaviour : MonoBehaviour
             else
             {
                 Debug.LogWarning("ClientManager not found in the scene.");
+            }
+            
+            DistractionManager distractionManager = FindObjectOfType<DistractionManager>();
+            if (distractionManager != null)
+            {
+                distractionManager.ResetStressBarAfterDelay(3f);
+            }
+            else
+            {
+                Debug.LogWarning("DistractionManager not found in the scene.");
             }
         }
         else if (success == 0)
@@ -117,5 +149,40 @@ public class ClientBehaviour : MonoBehaviour
     {
         //Aqui se destruye el cliente
         Destroy(gameObject);
+    }
+
+    public void printPrint()
+    {
+        if (textField != null)
+        {
+            textField.text = "Imprime porfa";
+        }
+        else
+        {
+            Debug.LogWarning("No TextMeshProUGUI found on " + gameObject.name);
+        }
+    }
+
+    public void printCompare()
+    {
+        if(textField != null)
+        {
+            textField.text = "Compara porfa";
+        }
+        else
+        {
+            Debug.LogWarning("No TextMeshProUGUI found on " + gameObject.name);
+        }
+    }
+    public void printNothing()
+    {
+        if(textField != null)
+        {
+            textField.text = "";
+        }
+        else
+        {
+            Debug.LogWarning("No TextMeshProUGUI found on " + gameObject.name);
+        }
     }
 }

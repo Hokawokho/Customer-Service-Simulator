@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7888481938497539633}
   - component: {fileID: 157309501839384802}
+  - component: {fileID: 7747682335108962702}
   m_Layer: 0
   m_Name: OfficeManager
   m_TagString: Untagged
@@ -45,3 +46,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   extraObjectsToPause: []
+--- !u!114 &7747682335108962702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2149851378133396109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbc3425826c3e034aa8bd2d99b1edf0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabToSpawn1: {fileID: 1113172530618069502, guid: fede3a45426abaa4d9a96d2cef4309e6, type: 3}
+  prefabToSpawn2: {fileID: 5121063092007753545, guid: cf9b98412bae1df41ac6813554f42c7e, type: 3}
+  prefabToSpawn3: {fileID: 1803582515604671322, guid: 29350d0ad6b56944fbd1ca8e7e5dd205, type: 3}
+  waitBeforeSpawn: 5
