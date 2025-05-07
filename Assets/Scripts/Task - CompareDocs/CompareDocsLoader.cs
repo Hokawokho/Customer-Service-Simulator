@@ -29,21 +29,16 @@ public class CompareDocsLoader : MonoBehaviour
     {
         manager = GetComponent<CompareDocsManager>();
         manager.numInputLines = maxInputLines;
-    }
 
-    void Start()
-    {
         // TODO: Cambiar a Application.persistentDataPath + "/Data/CompareDoc"
         // (y lidiar con los problemas que eso causa...)
         // Porque persistentDataPath es para los datos que persistirán entre ejecuciones.
         inputLinesPath = Application.dataPath + "/Data/CompareDoc/InputLine";
         regularLinesPath = Application.dataPath + "/Data/CompareDoc/RegularLine";
-
-        NewTask();
     }
 
-    // Carga una nueva instancia de la tarea. Llamar cada vez que se inicie la tarea.
-    public void NewTask() {
+    // NO LLAMAR FUERA DEL GAMEOBJECT. Carga las lineas de doc y pc. Uso exclusivo de CompareDocsManager. Para reiniciar o empezar tarea, llamar a "CompareDocsManager.NewTask()".
+    public void LoadLines() {
         List<string> inputLineFiles = Directory.GetFiles(inputLinesPath, "*.json").ToList();
         List<string> regularLineFiles = Directory.GetFiles(regularLinesPath, "*json").ToList();
         if (inputLineFiles.Count == 0 || regularLineFiles.Count == 0) {
@@ -156,6 +151,19 @@ public class CompareDocsLoader : MonoBehaviour
 
             TMP_Text text = regularLineObj.GetComponent<TMP_Text>();
             text.text = line.text + " " + ((RegularLineData) line).selectedSecondaryText;
+        }
+    }
+
+    public void Clear() {
+        foreach(Transform line in docContents.GetComponentInChildren<Transform>()) {
+            if (line.CompareTag("CompareDocLine")) {
+                Destroy(line.gameObject);
+            }
+        }
+        foreach(Transform line in pcContents.GetComponentInChildren<Transform>()) {
+            if (line.CompareTag("CompareDocLine")) {
+                Destroy(line.gameObject);
+            }
         }
     }
 

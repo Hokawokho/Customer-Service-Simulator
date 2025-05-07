@@ -110,7 +110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5535315348690051733, guid: 0d9441e8d9cca544480457ac28773229, type: 3}
       propertyPath: m_Name
-      value: PcRefularLine
+      value: PcRegularLine
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2819210703577149238, guid: 0d9441e8d9cca544480457ac28773229, type: 3}
