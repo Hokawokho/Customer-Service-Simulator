@@ -75,11 +75,19 @@ public class PrintManager : MonoBehaviour
     private void TaskWon() {
         // TEMPORAL. En el futuro habrá un game manager que se ocupe de cerrar y/o
         // cambiar escena, o de cerrar el juego.
+        ClientBehaviour client = FindObjectOfType<ClientBehaviour>();
+        if (client != null) {
+            client.finishTask(1);
+        } else {
+            Debug.LogWarning("No ClientBehaviour found on " + gameObject.name);
+        }
+        /*
         Debug.Log("TASK COMPLETED!");
         #if UNITY_EDITOR
             EditorApplication.isPlaying = false;
         #else
             Application.Quit();
         #endif
+        */
     }
 }

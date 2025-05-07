@@ -10,6 +10,7 @@ public class ClientBehaviour : MonoBehaviour
     public AnimationClip animEnd;
 
     private Animator animator;
+    private ClientManager clientManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class ClientBehaviour : MonoBehaviour
         {
             animator.Play(animSpawn.name);
         }
+        clientManager = FindObjectOfType<ClientManager>();
         
     }
 
@@ -35,10 +37,28 @@ public class ClientBehaviour : MonoBehaviour
             case 0:
                 //Generar tarea de imprimir
                 Debug.Log("Cliente " + gameObject.name + " ha generado una tarea de imprimir.");
+                CompareDocsManager comp = FindObjectOfType<CompareDocsManager>();
+                if (comp != null)
+                {
+                    comp.NewTask();
+                }
+                else
+                {
+                    Debug.LogWarning("CompareDocsManager not found in the scene.");
+                }
                 break;
             case 1:
                 //Generar tarea de comparar
                 Debug.Log("Cliente " + gameObject.name + " ha generado una tarea de comparar.");
+                PrintManager print = FindObjectOfType<PrintManager>();
+                if (print != null)
+                {
+                    print.NewTask();
+                }
+                else
+                {
+                    Debug.LogWarning("PrintManager not found in the scene.");
+                }
                 break;
             default:
                 //No hacer nada
@@ -55,16 +75,32 @@ public class ClientBehaviour : MonoBehaviour
         if (success == 1)
         {
             Debug.Log("Cliente " + gameObject.name + " ha terminado la tarea con exito.");
+            if(clientManager != null)
+            {
+                clientManager.TaskCompleted();
+            }
+            else
+            {
+                Debug.LogWarning("ClientManager not found in the scene.");
+            }
         }
         else if (success == 0)
         {
             Debug.Log("Cliente " + gameObject.name + " ha terminado la tarea sin exito.");
+            if(clientManager != null)
+            {
+                clientManager.TaskFailed();
+            }
+            else
+            {
+                Debug.LogWarning("ClientManager not found in the scene.");
+            }
         }
         else
         {
             Debug.Log("Cliente " + gameObject.name + " no ha terminado la tarea.");
         }
-        
+
         //Aqui se finaliza la tarea del cliente
         if (animEnd != null && animator != null)
         {
