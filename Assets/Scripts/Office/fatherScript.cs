@@ -37,6 +37,7 @@ public class fatherScript : MonoBehaviour
         EnableSons();
     }
 
+    //Deberia llamarse a esta funcion cuando se abra el menu de pausa
     public void freezeSons()
     {
         foreach (var child in GetComponentsInChildren<usableObject>())
@@ -44,6 +45,7 @@ public class fatherScript : MonoBehaviour
             child.freezeMe();
         }
     }
+    //Deberia llamarse a esta funcion cuando se cierre el menu de pausa
     public void unfreezeSons()
     {
         foreach (var child in GetComponentsInChildren<usableObject>())

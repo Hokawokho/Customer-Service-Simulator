@@ -59,6 +59,12 @@ public class CompareDocsManager : MonoBehaviour
 
     private void TaskWon() {
         taskCompleted = true;
+        ClientBehaviour client = FindObjectOfType<ClientBehaviour>();
+        if (client != null) {
+            client.finishTask(1);
+        } else {
+            Debug.LogWarning("ClientBehaviour not found in the scene.");
+        }
         usableExitScript.Transition();
         // ej: officeManager.TaskWon(this); // TODO
     }
