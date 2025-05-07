@@ -34,15 +34,15 @@ public class ClientManager : MonoBehaviour
             {
                 case 0:
                     // Step 2: Spawn the first prefab
-                    spawnedObject = Instantiate(prefabToSpawn1, transform.position, Quaternion.identity);
+                    spawnedObject = Instantiate(prefabToSpawn1, Vector3.zero, Quaternion.identity);
                     break;
                 case 1:
                     // Step 2: Spawn the second prefab
-                    spawnedObject = Instantiate(prefabToSpawn2, transform.position, Quaternion.identity);
+                    spawnedObject = Instantiate(prefabToSpawn2, Vector3.zero, Quaternion.identity);
                     break;
                 case 2:
                     // Step 2: Spawn the third prefab
-                    spawnedObject = Instantiate(prefabToSpawn3, transform.position, Quaternion.identity);
+                    spawnedObject = Instantiate(prefabToSpawn3, Vector3.zero, Quaternion.identity);
                     break;
             }
             totalClients++;

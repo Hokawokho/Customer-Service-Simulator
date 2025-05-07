@@ -30,6 +30,17 @@ public class ClientBehaviour : MonoBehaviour
     //Funcion a la que se llama al finalizar el acercamiento, para que el cliente genere una tarea
     public void provideTask()
     {
+        //Aqui se inicia la barra de frustracion del cliente
+        StressBar stressBar = FindObjectOfType<StressBar>();
+        if (stressBar != null)
+        {
+            stressBar.StartCharging();
+        }
+        else
+        {
+            Debug.LogWarning("StressBar not found in the scene.");
+        }
+        
         //Aqui se genera una tarea aleatoria para el cliente
         int idx = Random.Range(0, 2);
         switch (idx)
@@ -82,6 +93,16 @@ public class ClientBehaviour : MonoBehaviour
             else
             {
                 Debug.LogWarning("ClientManager not found in the scene.");
+            }
+            
+            DistractionManager distractionManager = FindObjectOfType<DistractionManager>();
+            if (distractionManager != null)
+            {
+                distractionManager.ResetStressBarAfterDelay(3f);
+            }
+            else
+            {
+                Debug.LogWarning("DistractionManager not found in the scene.");
             }
         }
         else if (success == 0)
