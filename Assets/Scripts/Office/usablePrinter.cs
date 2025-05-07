@@ -7,6 +7,8 @@ public class usablePrinter : usableObject
     //Sonido a reproducir al hacer click
     [Tooltip("Sonido a reproducir al hacer click")]
     public AudioClip soundToPlay;
+    // Manager de la impresión.
+    [SerializeField] private PrintManager manager;
 
     private AudioSource audioSource;
     protected override void Start()
@@ -46,8 +48,9 @@ public class usablePrinter : usableObject
         {
             Debug.LogWarning("No AudioSource or AudioClip found on " + gameObject.name);
         }
-        //Implementar funcionalidad de impresion aqui
-        //Animar el folio entrando, generar el objeto con datos, animar el folio saliendo
+
+        // Intentar imprimir.
+        manager.TryPrint();
     }
 
     protected void OnMouseUp()
