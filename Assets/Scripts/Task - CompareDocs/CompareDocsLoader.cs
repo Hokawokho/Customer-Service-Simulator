@@ -25,6 +25,12 @@ public class CompareDocsLoader : MonoBehaviour
 
     private CompareDocsManager manager;
 
+    void Awake()
+    {
+        manager = GetComponent<CompareDocsManager>();
+        manager.numInputLines = maxInputLines;
+    }
+
     void Start()
     {
         // TODO: Cambiar a Application.persistentDataPath + "/Data/CompareDoc"
@@ -32,9 +38,6 @@ public class CompareDocsLoader : MonoBehaviour
         // Porque persistentDataPath es para los datos que persistirán entre ejecuciones.
         inputLinesPath = Application.dataPath + "/Data/CompareDoc/InputLine";
         regularLinesPath = Application.dataPath + "/Data/CompareDoc/RegularLine";
-
-        manager = GetComponent<CompareDocsManager>();
-        manager.numInputLines = maxInputLines;
 
         NewTask();
     }

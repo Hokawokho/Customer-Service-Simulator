@@ -32,29 +32,6 @@ public class CompareDocsManager : MonoBehaviour
         if (completedLines.Count == numInputLines) TaskWon();
     }
 
-    /*
-    public void addInputLine(GameObject line) {
-        // Añadir lineas de input y lineas de res del pc.
-
-        inputDocLines.Add(line);
-        resPcLines.Add(line);
-        allDocLines.Add(line);
-    }
-
-    public void addRegularDocLines(GameObject line) {
-        // Añadir lineas normales de doc.
-
-        regularDocLines.Add(line);
-        allDocLines.Add(line);
-    }
-
-    public void addRegularPcLines(GameObject line) {
-        // Añadir lineas normales de pc.
-
-        regularPcLines.Add(line);
-    }
-    */
-
     public void LineCompleted(InputLine line) {
         completedLines.Add(line);
     }
