@@ -36,10 +36,11 @@ public class CompareDocsLoader : MonoBehaviour
         manager = GetComponent<CompareDocsManager>();
         manager.numInputLines = maxInputLines;
 
-        LoadLines();
+        NewTask();
     }
 
-    private void LoadLines() {
+    // Carga una nueva instancia de la tarea. Llamar cada vez que se inicie la tarea.
+    public void NewTask() {
         List<string> inputLineFiles = Directory.GetFiles(inputLinesPath, "*.json").ToList();
         List<string> regularLineFiles = Directory.GetFiles(regularLinesPath, "*json").ToList();
         if (inputLineFiles.Count == 0 || regularLineFiles.Count == 0) {
