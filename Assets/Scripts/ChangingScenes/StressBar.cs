@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StressBar : MonoBehaviour
 {
@@ -11,7 +12,9 @@ public class StressBar : MonoBehaviour
 
     private MiniGameLoader miniGameLoader;
 
-    private Animation _anim;
+    private Animator _anim;
+
+    private SceneManager sceneManager;
 
     private bool ClientActive;
 
@@ -19,7 +22,7 @@ public class StressBar : MonoBehaviour
     private void Start()
     {
         miniGameLoader = FindObjectOfType<MiniGameLoader>();
-        _anim = FindObjectOfType<Animation>();
+        _anim = FindObjectOfType<Animator>();
     }
 
     public void StartCharging()
@@ -45,7 +48,7 @@ public class StressBar : MonoBehaviour
 
             if (_anim != null && isCharging && ClientActive)
             {
-                _anim.Play("FloatingHead");
+                _anim.SetBool("ClientActive", isCharging && ClientActive);
             }
 
             timer += Time.deltaTime * chargeMultiplier;
@@ -62,8 +65,10 @@ public class StressBar : MonoBehaviour
                 isCharging = false;
                 ClientActive = false;
                 Debug.Log("Cargado");
-                if (miniGameLoader.IsMinigameActive)
-                {
+                if (miniGameLoader.IsMinigameActive && SceneManager.sceneCount > 1)
+                {   
+                    Debug.Log($"Escenas cargadas: {SceneManager.sceneCount}. Activa: {SceneManager.GetActiveScene().name}");
+
                     miniGameLoader.UnloadCurrentMinigame();
                 }
                 transform.localScale = new Vector3(0f, transform.localScale.y, transform.localScale.z);
