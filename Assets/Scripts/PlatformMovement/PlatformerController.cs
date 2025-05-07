@@ -57,8 +57,8 @@ public class PlatformerController : MonoBehaviour
                 rayColor = Color.red;
             }
 
-            Debug.DrawRay(_box.bounds.center, Vector2.down * (_box.bounds.extents.y + extraHeight));
-            Debug.Log(raycastHit2D.collider);
+           //Debug.DrawRay(_box.bounds.center, Vector2.down * (_box.bounds.extents.y + extraHeight));
+           // Debug.Log(raycastHit2D.collider);
             return raycastHit2D.collider != null;
 ;        }
     }
