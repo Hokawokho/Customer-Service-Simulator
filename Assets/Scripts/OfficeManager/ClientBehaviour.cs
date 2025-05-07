@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ClientBehaviour : MonoBehaviour
 {
@@ -8,6 +9,12 @@ public class ClientBehaviour : MonoBehaviour
     public AnimationClip animSpawn;
     [Tooltip("Animacion a reproducir al finalizar")]
     public AnimationClip animEnd;
+    [Tooltip("Animar texto a usar")]
+    public AnimationClip animTextP;
+    public AnimationClip animTextC;
+
+    [Tooltip("Campo de texto a usar")]
+    public TextMeshPro textField;
 
     private Animator animator;
     private ClientManager clientManager;
@@ -49,6 +56,8 @@ public class ClientBehaviour : MonoBehaviour
                 //Generar tarea de imprimir
                 Debug.Log("Cliente " + gameObject.name + " ha generado una tarea de imprimir.");
                 CompareDocsManager comp = FindObjectOfType<CompareDocsManager>();
+
+                animator.Play(animTextP.name);
                 if (comp != null)
                 {
                     comp.NewTask();
@@ -62,6 +71,8 @@ public class ClientBehaviour : MonoBehaviour
                 //Generar tarea de comparar
                 Debug.Log("Cliente " + gameObject.name + " ha generado una tarea de comparar.");
                 PrintManager print = FindObjectOfType<PrintManager>();
+
+                animator.Play(animTextC.name);
                 if (print != null)
                 {
                     print.NewTask();
@@ -138,5 +149,40 @@ public class ClientBehaviour : MonoBehaviour
     {
         //Aqui se destruye el cliente
         Destroy(gameObject);
+    }
+
+    public void printPrint()
+    {
+        if (textField != null)
+        {
+            textField.text = "Imprime porfa";
+        }
+        else
+        {
+            Debug.LogWarning("No TextMeshProUGUI found on " + gameObject.name);
+        }
+    }
+
+    public void printCompare()
+    {
+        if(textField != null)
+        {
+            textField.text = "Compara porfa";
+        }
+        else
+        {
+            Debug.LogWarning("No TextMeshProUGUI found on " + gameObject.name);
+        }
+    }
+    public void printNothing()
+    {
+        if(textField != null)
+        {
+            textField.text = "";
+        }
+        else
+        {
+            Debug.LogWarning("No TextMeshProUGUI found on " + gameObject.name);
+        }
     }
 }
